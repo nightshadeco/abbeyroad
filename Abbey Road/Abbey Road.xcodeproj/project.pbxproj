@@ -24,6 +24,9 @@
 		FABD3C1121977A36007F8BF5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FABD3C0F21977A36007F8BF5 /* Main.storyboard */; };
 		FABD3C1321977A36007F8BF5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FABD3C1221977A36007F8BF5 /* Assets.xcassets */; };
 		FABD3C1621977A36007F8BF5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FABD3C1421977A36007F8BF5 /* LaunchScreen.storyboard */; };
+		FABD3C1C21978846007F8BF5 /* InstrumentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABD3C1B21978846007F8BF5 /* InstrumentView.swift */; };
+		FABD3C1E21978D84007F8BF5 /* DrumInstrumentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABD3C1D21978D84007F8BF5 /* DrumInstrumentView.swift */; };
+		FABD3C2021978E0C007F8BF5 /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABD3C1F21978E0C007F8BF5 /* UIColor+Hex.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +55,9 @@
 		FABD3C1221977A36007F8BF5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FABD3C1521977A36007F8BF5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FABD3C1721977A36007F8BF5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FABD3C1B21978846007F8BF5 /* InstrumentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstrumentView.swift; sourceTree = "<group>"; };
+		FABD3C1D21978D84007F8BF5 /* DrumInstrumentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrumInstrumentView.swift; sourceTree = "<group>"; };
+		FABD3C1F21978E0C007F8BF5 /* UIColor+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +131,9 @@
 				FA443D4721972ED200297B58 /* Assets.xcassets */,
 				FA443D4921972ED200297B58 /* LaunchScreen.storyboard */,
 				FA443D4C21972ED200297B58 /* Info.plist */,
+				FABD3C1B21978846007F8BF5 /* InstrumentView.swift */,
+				FABD3C1D21978D84007F8BF5 /* DrumInstrumentView.swift */,
+				FABD3C1F21978E0C007F8BF5 /* UIColor+Hex.swift */,
 			);
 			path = "Abbey Road";
 			sourceTree = "<group>";
@@ -164,6 +173,7 @@
 				FA443D3721972ECE00297B58 /* Sources */,
 				FA443D3821972ECE00297B58 /* Frameworks */,
 				FA443D3921972ECE00297B58 /* Resources */,
+				4A3145F3865C782231CD9846 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -254,6 +264,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		4A3145F3865C782231CD9846 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Abbey Road/Pods-Abbey Road-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/PureLayout/PureLayout.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PureLayout.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Abbey Road/Pods-Abbey Road-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		607B2D8753356F743D811C1D /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -297,12 +325,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FABD3C1C21978846007F8BF5 /* InstrumentView.swift in Sources */,
 				FA443D4321972ECE00297B58 /* ViewController.swift in Sources */,
 				FA443D5A219752FB00297B58 /* ColorMessage.swift in Sources */,
+				FABD3C2021978E0C007F8BF5 /* UIColor+Hex.swift in Sources */,
 				FA443D5C2197535800297B58 /* BitStream.swift in Sources */,
 				FA443D3F21972ECE00297B58 /* AppDelegate.swift in Sources */,
 				FA443D5E219753AC00297B58 /* BitStreamCodable.swift in Sources */,
 				FA443D5821973D5900297B58 /* MusicService.swift in Sources */,
+				FABD3C1E21978D84007F8BF5 /* DrumInstrumentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -478,7 +509,10 @@
 				DEVELOPMENT_TEAM = AEX8D6Z45H;
 				INFOPLIST_FILE = "Abbey Road/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.nightshade.Abbey-Road";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -495,7 +529,10 @@
 				DEVELOPMENT_TEAM = AEX8D6Z45H;
 				INFOPLIST_FILE = "Abbey Road/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.nightshade.Abbey-Road";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -512,7 +549,10 @@
 				DEVELOPMENT_TEAM = AEX8D6Z45H;
 				INFOPLIST_FILE = "Abbey Road Host/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.nightshade.Abbey-Road-Host";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -529,7 +569,10 @@
 				DEVELOPMENT_TEAM = AEX8D6Z45H;
 				INFOPLIST_FILE = "Abbey Road Host/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.nightshade.Abbey-Road-Host";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;

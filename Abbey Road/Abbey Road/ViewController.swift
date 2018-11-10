@@ -10,6 +10,7 @@ import UIKit
 import SceneKit
 import ARKit
 import MultipeerConnectivity
+import PureLayout
 
 class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
 
@@ -19,6 +20,12 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
     
     var cubeNode: SCNNode?
     var peerNodes = [MCPeerID : SCNNode]()
+    
+    var instrumentView: UIView?
+    
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -68,7 +75,6 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
         let node = SCNNode()
         node.geometry = SCNBox(width: 0.1, height: 0.1, length: 0.1, chamferRadius: 0)
         node.pivot = SCNMatrix4MakeTranslation(0, -0.05, 0)
-//        node.transform = SCNMatrix4MakeTranslation(anchor.transform.columns.3.x, anchor.transform.columns.3.y, anchor.transform.columns.3.z)
         node.geometry?.firstMaterial?.diffuse.contents = UIColor.yellow
         cubeNode = node
         sceneView.session.setWorldOrigin(relativeTransform: anchor.transform)
@@ -110,6 +116,12 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
     @IBAction func redTapped() {
         change(color: .red)
         musicService.send(colorName: "red")
+        
+        instrumentView = DrumInstrumentView(forAutoLayout: ())
+        if let instrumentView = instrumentView {
+            view.addSubview(instrumentView)
+            instrumentView.autoPinEdgesToSuperviewEdges()
+        }
     }
     
     @IBAction func greenTapped() {

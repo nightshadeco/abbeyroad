@@ -6,6 +6,7 @@ target 'Abbey Road' do
   use_frameworks!
 
   # Pods for Abbey Road
+  pod 'PureLayout'
 
 end
 
