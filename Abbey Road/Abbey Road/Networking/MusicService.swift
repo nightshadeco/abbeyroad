@@ -11,8 +11,8 @@ import simd
 
 protocol MusicServiceDelegate {
     func connectedDevicesChanged(service: MusicService, connectedDevices: [String])
-    func colorChanged(service: MusicService, colorString: String)
-    func positionChanged(service: MusicService, position: simd_float4)
+    func colorChanged(service: MusicService, peerId: MCPeerID, colorString: String)
+    func positionChanged(service: MusicService, peerId: MCPeerID, position: simd_float3)
 }
 
 class MusicService: NSObject {
@@ -48,17 +48,31 @@ class MusicService: NSObject {
         serviceBrowser.stopBrowsingForPeers()
     }
     
-    func send(colorName : String) {
+    func send(colorName: String) {
         NSLog("%@", "sendColor: \(colorName) to \(session.connectedPeers.count) peers")
         
         if session.connectedPeers.count > 0 {
             do {
-                try self.session.send(colorName.data(using: .utf8)!, toPeers: session.connectedPeers, with: .reliable)
+                let colorString = "C" + colorName
+                try self.session.send(colorString.data(using: .utf8)!, toPeers: session.connectedPeers, with: .reliable)
             } catch let error {
                 NSLog("%@", "Error for sending: \(error)")
             }
         }
+    }
+    
+    func send(position: simd_float3) {
+        NSLog("%@", "position: \(position.debugDescription) to \(session.connectedPeers.count) peers")
         
+        if session.connectedPeers.count > 0 {
+            do {
+                let positionString = "\(position.x),\(position.y),\(position.z)"
+                let str = "P" + positionString
+                try self.session.send(str.data(using: .utf8)!, toPeers: session.connectedPeers, with: .reliable)
+            } catch let error {
+                NSLog("%@", "Error for sending: \(error)")
+            }
+        }
     }
     
 }
@@ -102,10 +116,24 @@ extension MusicService : MCSessionDelegate {
             session.connectedPeers.map{$0.displayName})
     }
     
-    func session(_ session: MCSession, didReceive data: Data, fromPeer peerID: MCPeerID) {
+    func session(_ session: MCSession, didReceive data: Data, fromPeer peerId: MCPeerID) {
         NSLog("%@", "didReceiveData: \(data)")
         let str = String(data: data, encoding: .utf8)!
-        self.delegate?.colorChanged(service: self, colorString: str)
+        let index = str.index(after: str.startIndex)
+        let payloadString = String(str[index...])
+        if str.starts(with: "C") {
+            self.delegate?.colorChanged(service: self, peerId: peerId, colorString: payloadString)
+        } else if str.starts(with: "P") {
+            NSLog("%@", "position change: \(payloadString)")
+            let positionSplits = payloadString.split(separator: ",")
+            let x = Float(positionSplits[0])!
+            let y = Float(positionSplits[1])!
+            let z = Float(positionSplits[2])!
+            let position = simd_float3(x, y, z)
+            self.delegate?.positionChanged(service: self, peerId: peerId, position: position)
+        } else {
+            fatalError("Invalid protocol")
+        }
     }
     
     func session(_ session: MCSession, didReceive stream: InputStream, withName streamName: String, fromPeer peerID: MCPeerID) {

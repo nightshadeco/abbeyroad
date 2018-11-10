@@ -11,19 +11,21 @@ import SceneKit
 import ARKit
 import MultipeerConnectivity
 
-class ViewController: UIViewController, ARSCNViewDelegate, MCSessionDelegate, MCBrowserViewControllerDelegate {
+class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
 
     @IBOutlet var sceneView: ARSCNView!
     
     let musicService = MusicService()
     
     var cubeNode: SCNNode?
+    var peerNodes = [MCPeerID : SCNNode]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Set the view's delegate
         sceneView.delegate = self
+        sceneView.session.delegate = self
         
         // Show statistics such as fps and timing information
 //        sceneView.showsStatistics = true
@@ -66,9 +68,11 @@ class ViewController: UIViewController, ARSCNViewDelegate, MCSessionDelegate, MC
         let node = SCNNode()
         node.geometry = SCNBox(width: 0.1, height: 0.1, length: 0.1, chamferRadius: 0)
         node.pivot = SCNMatrix4MakeTranslation(0, -0.05, 0)
-        node.transform = SCNMatrix4MakeTranslation(anchor.transform.columns.3.x, anchor.transform.columns.3.y, anchor.transform.columns.3.z)
+//        node.transform = SCNMatrix4MakeTranslation(anchor.transform.columns.3.x, anchor.transform.columns.3.y, anchor.transform.columns.3.z)
         node.geometry?.firstMaterial?.diffuse.contents = UIColor.yellow
         cubeNode = node
+        sceneView.session.setWorldOrigin(relativeTransform: anchor.transform)
+        
         return node
     }
     
@@ -87,75 +91,15 @@ class ViewController: UIViewController, ARSCNViewDelegate, MCSessionDelegate, MC
         
     }
     
-    // MARK: - MCSessionDelegate
-    
-    func session(_ session: MCSession, didReceive stream: InputStream, withName streamName: String, fromPeer peerID: MCPeerID) {
-        
+    func session(_ session: ARSession, didUpdate frame: ARFrame) {
+        NSLog("\(frame.camera.transform.columns.3.debugDescription)")
+        let x = frame.camera.transform.columns.3.x
+        let y = frame.camera.transform.columns.3.y
+        let z = frame.camera.transform.columns.3.z
+        musicService.send(position: simd_float3(x, y, z))
     }
     
-    func session(_ session: MCSession, didStartReceivingResourceWithName resourceName: String, fromPeer peerID: MCPeerID, with progress: Progress) {
-        
-    }
-    
-    func session(_ session: MCSession, didFinishReceivingResourceWithName resourceName: String, fromPeer peerID: MCPeerID, at localURL: URL?, withError error: Error?) {
-        
-    }
-    
-    func session(_ session: MCSession, didReceive data: Data, fromPeer peerID: MCPeerID) {
-        if let image = UIImage(data: data) {
-            DispatchQueue.main.async { [unowned self] in
-                // do something with the image
-            }
-        }
-    }
-    
-    // MARK: - MCBrowserViewControllerDelegate
-    
-    func browserViewControllerDidFinish(_ browserViewController: MCBrowserViewController) {
-        dismiss(animated: true)
-    }
-    
-    func browserViewControllerWasCancelled(_ browserViewController: MCBrowserViewController) {
-        dismiss(animated: true)
-    }
-    
-    func session(_ session: MCSession, peer peerID: MCPeerID, didChange state: MCSessionState) {
-        switch state {
-        case MCSessionState.connected:
-            print("Connected: \(peerID.displayName)")
-            
-        case MCSessionState.connecting:
-            print("Connecting: \(peerID.displayName)")
-            
-        case MCSessionState.notConnected:
-            print("Not Connected: \(peerID.displayName)")
-        }
-    }
-//
-//    func sendImage(img: UIImage) {
-//        if mcSession.connectedPeers.count > 0 {
-//            if let imageData = img.pngData() {
-//                do {
-//                    try mcSession.send(imageData, toPeers: mcSession.connectedPeers, with: .reliable)
-//                } catch let error as NSError {
-//                    let ac = UIAlertController(title: "Send error", message: error.localizedDescription, preferredStyle: .alert)
-//                    ac.addAction(UIAlertAction(title: "OK", style: .default))
-//                    present(ac, animated: true)
-//                }
-//            }
-//        }
-//    }
-//
-//    func startHosting() {
-//        mcAdvertiserAssistant = MCAdvertiserAssistant(serviceType: serviceType, discoveryInfo: nil, session: mcSession)
-//        mcAdvertiserAssistant.start()
-//    }
-//
-//    func joinSession() {
-//        let mcBrowser = MCBrowserViewController(serviceType: serviceType, session: mcSession)
-//        mcBrowser.delegate = self
-//        present(mcBrowser, animated: true)
-//    }
+    // MARK: - Color and actions
     
     func change(color: UIColor) {
         if let node = cubeNode {
@@ -183,7 +127,7 @@ extension ViewController: MusicServiceDelegate {
         }
     }
     
-    func colorChanged(service: MusicService, colorString: String) {
+    func colorChanged(service: MusicService, peerId: MCPeerID, colorString: String) {
         OperationQueue.main.addOperation {
             switch colorString {
             case "red":
@@ -195,4 +139,19 @@ extension ViewController: MusicServiceDelegate {
             }
         }
     }
+    
+    func positionChanged(service: MusicService, peerId: MCPeerID, position: simd_float3) {
+        NSLog("Position changed: \(position.debugDescription)")
+        if peerNodes[peerId] == nil {
+            let node = SCNNode()
+            node.geometry = SCNSphere(radius: 0.05)
+            node.geometry?.firstMaterial?.diffuse.contents = UIColor.blue
+            sceneView.scene.rootNode.addChildNode(node)
+            peerNodes[peerId] = node
+        }
+        
+        let peerNode = peerNodes[peerId]!
+        peerNode.position = SCNVector3(position)
+    }
+    
 }

@@ -14,6 +14,9 @@
 		FA443D4821972ED200297B58 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA443D4721972ED200297B58 /* Assets.xcassets */; };
 		FA443D4B21972ED200297B58 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA443D4921972ED200297B58 /* LaunchScreen.storyboard */; };
 		FA443D5821973D5900297B58 /* MusicService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA443D5721973D5900297B58 /* MusicService.swift */; };
+		FA443D5A219752FB00297B58 /* ColorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA443D59219752FB00297B58 /* ColorMessage.swift */; };
+		FA443D5C2197535800297B58 /* BitStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA443D5B2197535800297B58 /* BitStream.swift */; };
+		FA443D5E219753AC00297B58 /* BitStreamCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA443D5D219753AC00297B58 /* BitStreamCodable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +29,9 @@
 		FA443D4A21972ED200297B58 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FA443D4C21972ED200297B58 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FA443D5721973D5900297B58 /* MusicService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicService.swift; sourceTree = "<group>"; };
+		FA443D59219752FB00297B58 /* ColorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorMessage.swift; sourceTree = "<group>"; };
+		FA443D5B2197535800297B58 /* BitStream.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BitStream.swift; sourceTree = "<group>"; };
+		FA443D5D219753AC00297B58 /* BitStreamCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BitStreamCodable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +80,9 @@
 			isa = PBXGroup;
 			children = (
 				FA443D5721973D5900297B58 /* MusicService.swift */,
+				FA443D59219752FB00297B58 /* ColorMessage.swift */,
+				FA443D5B2197535800297B58 /* BitStream.swift */,
+				FA443D5D219753AC00297B58 /* BitStreamCodable.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -151,7 +160,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA443D4321972ECE00297B58 /* ViewController.swift in Sources */,
+				FA443D5A219752FB00297B58 /* ColorMessage.swift in Sources */,
+				FA443D5C2197535800297B58 /* BitStream.swift in Sources */,
 				FA443D3F21972ECE00297B58 /* AppDelegate.swift in Sources */,
+				FA443D5E219753AC00297B58 /* BitStreamCodable.swift in Sources */,
 				FA443D5821973D5900297B58 /* MusicService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
