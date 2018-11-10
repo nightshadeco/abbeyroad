@@ -8,6 +8,9 @@
 build/
 DerivedData/
 
+## AudioKit is too big for git
+AudioKit/
+
 ## Various settings
 *.pbxuser
 !default.pbxuser

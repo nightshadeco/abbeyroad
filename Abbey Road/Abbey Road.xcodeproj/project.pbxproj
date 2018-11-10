@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2885E092FA93704755902488 /* Pods_Abbey_Road.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6392E2B5E8DA7B95CBD1B56A /* Pods_Abbey_Road.framework */; };
+		F8A0CB6431FE6F174A3A6ED7 /* Pods_Abbey_Road_Host.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CEEC61AE0EBB037B3654E03 /* Pods_Abbey_Road_Host.framework */; };
 		FA443D3F21972ECE00297B58 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA443D3E21972ECE00297B58 /* AppDelegate.swift */; };
 		FA443D4121972ECE00297B58 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = FA443D4021972ECE00297B58 /* art.scnassets */; };
 		FA443D4321972ECE00297B58 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA443D4221972ECE00297B58 /* ViewController.swift */; };
@@ -17,9 +19,20 @@
 		FA443D5A219752FB00297B58 /* ColorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA443D59219752FB00297B58 /* ColorMessage.swift */; };
 		FA443D5C2197535800297B58 /* BitStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA443D5B2197535800297B58 /* BitStream.swift */; };
 		FA443D5E219753AC00297B58 /* BitStreamCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA443D5D219753AC00297B58 /* BitStreamCodable.swift */; };
+		FABD3C0C21977A36007F8BF5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABD3C0B21977A36007F8BF5 /* AppDelegate.swift */; };
+		FABD3C0E21977A36007F8BF5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABD3C0D21977A36007F8BF5 /* ViewController.swift */; };
+		FABD3C1121977A36007F8BF5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FABD3C0F21977A36007F8BF5 /* Main.storyboard */; };
+		FABD3C1321977A36007F8BF5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FABD3C1221977A36007F8BF5 /* Assets.xcassets */; };
+		FABD3C1621977A36007F8BF5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FABD3C1421977A36007F8BF5 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4CEEC61AE0EBB037B3654E03 /* Pods_Abbey_Road_Host.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Abbey_Road_Host.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6392E2B5E8DA7B95CBD1B56A /* Pods_Abbey_Road.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Abbey_Road.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		926BBF6B880E2AD6BFED4345 /* Pods-Abbey Road.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Abbey Road.release.xcconfig"; path = "Pods/Target Support Files/Pods-Abbey Road/Pods-Abbey Road.release.xcconfig"; sourceTree = "<group>"; };
+		9AA9B5A2325D7A255061F12F /* Pods-Abbey Road Host.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Abbey Road Host.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Abbey Road Host/Pods-Abbey Road Host.debug.xcconfig"; sourceTree = "<group>"; };
+		AB929CFA64DBF039C6F5DAA1 /* Pods-Abbey Road.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Abbey Road.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Abbey Road/Pods-Abbey Road.debug.xcconfig"; sourceTree = "<group>"; };
+		B1831574AB1A90E25A295619 /* Pods-Abbey Road Host.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Abbey Road Host.release.xcconfig"; path = "Pods/Target Support Files/Pods-Abbey Road Host/Pods-Abbey Road Host.release.xcconfig"; sourceTree = "<group>"; };
 		FA443D3B21972ECE00297B58 /* Abbey Road.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Abbey Road.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA443D3E21972ECE00297B58 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FA443D4021972ECE00297B58 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
@@ -32,6 +45,13 @@
 		FA443D59219752FB00297B58 /* ColorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorMessage.swift; sourceTree = "<group>"; };
 		FA443D5B2197535800297B58 /* BitStream.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BitStream.swift; sourceTree = "<group>"; };
 		FA443D5D219753AC00297B58 /* BitStreamCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BitStreamCodable.swift; sourceTree = "<group>"; };
+		FABD3C0921977A36007F8BF5 /* Abbey Road Host.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Abbey Road Host.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FABD3C0B21977A36007F8BF5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		FABD3C0D21977A36007F8BF5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		FABD3C1021977A36007F8BF5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		FABD3C1221977A36007F8BF5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FABD3C1521977A36007F8BF5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		FABD3C1721977A36007F8BF5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,17 +59,49 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2885E092FA93704755902488 /* Pods_Abbey_Road.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FABD3C0621977A36007F8BF5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F8A0CB6431FE6F174A3A6ED7 /* Pods_Abbey_Road_Host.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		94861023B3DB87C49FFA5305 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				AB929CFA64DBF039C6F5DAA1 /* Pods-Abbey Road.debug.xcconfig */,
+				926BBF6B880E2AD6BFED4345 /* Pods-Abbey Road.release.xcconfig */,
+				9AA9B5A2325D7A255061F12F /* Pods-Abbey Road Host.debug.xcconfig */,
+				B1831574AB1A90E25A295619 /* Pods-Abbey Road Host.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		98809D9D0F669A861A209275 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6392E2B5E8DA7B95CBD1B56A /* Pods_Abbey_Road.framework */,
+				4CEEC61AE0EBB037B3654E03 /* Pods_Abbey_Road_Host.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		FA443D3221972ECE00297B58 = {
 			isa = PBXGroup;
 			children = (
 				FA443D3D21972ECE00297B58 /* Abbey Road */,
+				FABD3C0A21977A36007F8BF5 /* Abbey Road Host */,
 				FA443D3C21972ECE00297B58 /* Products */,
+				94861023B3DB87C49FFA5305 /* Pods */,
+				98809D9D0F669A861A209275 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -57,6 +109,7 @@
 			isa = PBXGroup;
 			children = (
 				FA443D3B21972ECE00297B58 /* Abbey Road.app */,
+				FABD3C0921977A36007F8BF5 /* Abbey Road Host.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -87,6 +140,19 @@
 			path = Networking;
 			sourceTree = "<group>";
 		};
+		FABD3C0A21977A36007F8BF5 /* Abbey Road Host */ = {
+			isa = PBXGroup;
+			children = (
+				FABD3C0B21977A36007F8BF5 /* AppDelegate.swift */,
+				FABD3C0D21977A36007F8BF5 /* ViewController.swift */,
+				FABD3C0F21977A36007F8BF5 /* Main.storyboard */,
+				FABD3C1221977A36007F8BF5 /* Assets.xcassets */,
+				FABD3C1421977A36007F8BF5 /* LaunchScreen.storyboard */,
+				FABD3C1721977A36007F8BF5 /* Info.plist */,
+			);
+			path = "Abbey Road Host";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -94,6 +160,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FA443D4F21972ED200297B58 /* Build configuration list for PBXNativeTarget "Abbey Road" */;
 			buildPhases = (
+				AB62C174385BFA73702AE790 /* [CP] Check Pods Manifest.lock */,
 				FA443D3721972ECE00297B58 /* Sources */,
 				FA443D3821972ECE00297B58 /* Frameworks */,
 				FA443D3921972ECE00297B58 /* Resources */,
@@ -107,6 +174,24 @@
 			productReference = FA443D3B21972ECE00297B58 /* Abbey Road.app */;
 			productType = "com.apple.product-type.application";
 		};
+		FABD3C0821977A36007F8BF5 /* Abbey Road Host */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FABD3C1A21977A36007F8BF5 /* Build configuration list for PBXNativeTarget "Abbey Road Host" */;
+			buildPhases = (
+				607B2D8753356F743D811C1D /* [CP] Check Pods Manifest.lock */,
+				FABD3C0521977A36007F8BF5 /* Sources */,
+				FABD3C0621977A36007F8BF5 /* Frameworks */,
+				FABD3C0721977A36007F8BF5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Abbey Road Host";
+			productName = "Abbey Road Host";
+			productReference = FABD3C0921977A36007F8BF5 /* Abbey Road Host.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -118,6 +203,9 @@
 				ORGANIZATIONNAME = Nightshade;
 				TargetAttributes = {
 					FA443D3A21972ECE00297B58 = {
+						CreatedOnToolsVersion = 10.1;
+					};
+					FABD3C0821977A36007F8BF5 = {
 						CreatedOnToolsVersion = 10.1;
 					};
 				};
@@ -136,6 +224,7 @@
 			projectRoot = "";
 			targets = (
 				FA443D3A21972ECE00297B58 /* Abbey Road */,
+				FABD3C0821977A36007F8BF5 /* Abbey Road Host */,
 			);
 		};
 /* End PBXProject section */
@@ -152,7 +241,56 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		FABD3C0721977A36007F8BF5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FABD3C1621977A36007F8BF5 /* LaunchScreen.storyboard in Resources */,
+				FABD3C1321977A36007F8BF5 /* Assets.xcassets in Resources */,
+				FABD3C1121977A36007F8BF5 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		607B2D8753356F743D811C1D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Abbey Road Host-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AB62C174385BFA73702AE790 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Abbey Road-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		FA443D3721972ECE00297B58 /* Sources */ = {
@@ -165,6 +303,15 @@
 				FA443D3F21972ECE00297B58 /* AppDelegate.swift in Sources */,
 				FA443D5E219753AC00297B58 /* BitStreamCodable.swift in Sources */,
 				FA443D5821973D5900297B58 /* MusicService.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FABD3C0521977A36007F8BF5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FABD3C0E21977A36007F8BF5 /* ViewController.swift in Sources */,
+				FABD3C0C21977A36007F8BF5 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -183,6 +330,22 @@
 			isa = PBXVariantGroup;
 			children = (
 				FA443D4A21972ED200297B58 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		FABD3C0F21977A36007F8BF5 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FABD3C1021977A36007F8BF5 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		FABD3C1421977A36007F8BF5 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FABD3C1521977A36007F8BF5 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -308,16 +471,14 @@
 		};
 		FA443D5021972ED200297B58 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AB929CFA64DBF039C6F5DAA1 /* Pods-Abbey Road.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = AEX8D6Z45H;
 				INFOPLIST_FILE = "Abbey Road/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.nightshade.Abbey-Road";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -327,17 +488,49 @@
 		};
 		FA443D5121972ED200297B58 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 926BBF6B880E2AD6BFED4345 /* Pods-Abbey Road.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = AEX8D6Z45H;
 				INFOPLIST_FILE = "Abbey Road/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.nightshade.Abbey-Road";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		FABD3C1821977A36007F8BF5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9AA9B5A2325D7A255061F12F /* Pods-Abbey Road Host.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = AEX8D6Z45H;
+				INFOPLIST_FILE = "Abbey Road Host/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.nightshade.Abbey-Road-Host";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		FABD3C1921977A36007F8BF5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B1831574AB1A90E25A295619 /* Pods-Abbey Road Host.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = AEX8D6Z45H;
+				INFOPLIST_FILE = "Abbey Road Host/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.nightshade.Abbey-Road-Host";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -361,6 +554,15 @@
 			buildConfigurations = (
 				FA443D5021972ED200297B58 /* Debug */,
 				FA443D5121972ED200297B58 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FABD3C1A21977A36007F8BF5 /* Build configuration list for PBXNativeTarget "Abbey Road Host" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FABD3C1821977A36007F8BF5 /* Debug */,
+				FABD3C1921977A36007F8BF5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
