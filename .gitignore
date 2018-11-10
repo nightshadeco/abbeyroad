@@ -10,6 +10,7 @@ DerivedData/
 
 ## AudioKit is too big for git
 AudioKit/
+Pods/
 
 ## Various settings
 *.pbxuser
