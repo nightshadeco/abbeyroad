@@ -125,6 +125,10 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
         node.pivot = SCNMatrix4MakeTranslation(0, -0.005, 0)
         node.geometry?.firstMaterial?.diffuse.contents = UIColor.yellow
         cubeNode = node
+        cubeNode?.isHidden = true
+        if let logoNode = sceneView.scene.rootNode.childNode(withName: "logo", recursively: false) {
+            logoNode.isHidden = false
+        }
         sceneView.session.setWorldOrigin(relativeTransform: anchor.transform)
         
         return node
@@ -185,8 +189,8 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
         let backbutton = UIButton(forAutoLayout: ())
         backbutton.setTitle("X", for: .normal)
         view.addSubview(backbutton)
-        backbutton.autoPinEdge(toSuperviewEdge: .left)
-        backbutton.autoPinEdge(toSuperviewEdge: .top)
+        backbutton.autoPinEdge(toSuperviewEdge: .left, withInset: 12.0)
+        backbutton.autoPinEdge(toSuperviewEdge: .top, withInset: 20.0)
         
         backbutton.addTarget(self, action: #selector(backTapped), for: .touchUpInside)
     }
@@ -205,8 +209,8 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
         let backbutton = UIButton(forAutoLayout: ())
         backbutton.setTitle("X", for: .normal)
         view.addSubview(backbutton)
-        backbutton.autoPinEdge(toSuperviewEdge: .left)
-        backbutton.autoPinEdge(toSuperviewEdge: .top)
+        backbutton.autoPinEdge(toSuperviewEdge: .left, withInset: 12.0)
+        backbutton.autoPinEdge(toSuperviewEdge: .top, withInset: 20.0)
         
         backbutton.addTarget(self, action: #selector(backTapped), for: .touchUpInside)
     }
@@ -237,7 +241,7 @@ extension ViewController: MusicServiceDelegate {
     func positionChanged(service: MusicService, peerId: MCPeerID, position: simd_float3) {
         if peerNodes[peerId] == nil {
             let node = SCNNode()
-            node.geometry = SCNSphere(radius: 0.05)
+            node.geometry = SCNSphere(radius: 0.01)
             node.geometry?.firstMaterial?.diffuse.contents = UIColor.blue
             sceneView.scene.rootNode.addChildNode(node)
             peerNodes[peerId] = node

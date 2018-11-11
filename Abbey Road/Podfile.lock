@@ -14,7 +14,7 @@ DEPENDENCIES:
   - Repeat
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  https://github.com/CocoaPods/Specs.git:
     - AudioKit
     - PureLayout
     - Repeat
@@ -26,4 +26,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 2240e3de701ca80d140cebd2be681aa952053e16
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.5.0

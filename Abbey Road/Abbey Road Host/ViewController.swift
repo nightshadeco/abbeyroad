@@ -116,15 +116,16 @@ extension ViewController: MusicServiceDelegate {
     
     func instrumentMessage(service: MusicService, peerId: MCPeerID, message: InstrumentMessage) {
         if message.instrument == .Drum {
-            if let distance = distances[peerId] {
-                self.kit.drums.volume = Double(1.0 - distance)
-            }
+//            if let distance = distances[peerId] {
+//                self.kit.drums.volume = Double(1.0 - distance)
+//            }
+            let velocity = MIDIVelocity((1.0 - (distances[peerId] ?? 0.0)) * 255)
             if message.action == 0 {
-                try? self.kit.drums.play(noteNumber: 36 - 12)
+                try? self.kit.drums.play(noteNumber: 36 - 12, velocity: velocity)
             } else if message.action == 1 {
-                try? self.kit.drums.play(noteNumber: 38 - 12)
+                try? self.kit.drums.play(noteNumber: 38 - 12, velocity: velocity)
             } else if message.action == 2 {
-                try? self.kit.drums.play(noteNumber: 46 - 12)
+                try? self.kit.drums.play(noteNumber: 46 - 12, velocity: velocity)
             }
         } else if message.instrument == .Harp {
             if let distance = distances[peerId] {
