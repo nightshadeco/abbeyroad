@@ -9,10 +9,11 @@
 import MultipeerConnectivity
 import simd
 
-protocol MusicServiceDelegate {
+@objc protocol MusicServiceDelegate: AnyObject {
     func connectedDevicesChanged(service: MusicService, connectedDevices: [String])
-    func colorChanged(service: MusicService, peerId: MCPeerID, colorString: String)
-    func positionChanged(service: MusicService, peerId: MCPeerID, position: simd_float3)
+    @objc optional func colorChanged(service: MusicService, peerId: MCPeerID, colorString: String)
+    @objc optional func positionChanged(service: MusicService, peerId: MCPeerID, position: simd_float3)
+    @objc optional func instrumentMessage(service: MusicService, peerId: MCPeerID, message: InstrumentMessage)
 }
 
 class MusicService: NSObject {
@@ -75,6 +76,17 @@ class MusicService: NSObject {
         }
     }
     
+    func send(instrumentMessage: InstrumentMessage) {
+        if session.connectedPeers.count > 0 {
+            let message = "I" + instrumentMessage.instrument.rawValue + "\(instrumentMessage.action)"
+            do {
+                try self.session.send(message.data(using: .utf8)!, toPeers: session.connectedPeers, with: .reliable)
+            } catch let error {
+                NSLog("%@", "Error for sending: \(error)")
+            }
+        }
+    }
+    
 }
 
 extension MusicService: MCNearbyServiceAdvertiserDelegate {
@@ -122,7 +134,7 @@ extension MusicService : MCSessionDelegate {
         let index = str.index(after: str.startIndex)
         let payloadString = String(str[index...])
         if str.starts(with: "C") {
-            self.delegate?.colorChanged(service: self, peerId: peerId, colorString: payloadString)
+            self.delegate?.colorChanged?(service: self, peerId: peerId, colorString: payloadString)
         } else if str.starts(with: "P") {
             NSLog("%@", "position change: \(payloadString)")
             let positionSplits = payloadString.split(separator: ",")
@@ -130,7 +142,18 @@ extension MusicService : MCSessionDelegate {
             let y = Float(positionSplits[1])!
             let z = Float(positionSplits[2])!
             let position = simd_float3(x, y, z)
-            self.delegate?.positionChanged(service: self, peerId: peerId, position: position)
+            self.delegate?.positionChanged?(service: self, peerId: peerId, position: position)
+        } else if str.starts(with: "I") {
+            NSLog("%@", "instrument message: \(payloadString)")
+            
+            let instrumentString = String(payloadString.prefix(1))
+            let actionString = String(payloadString[payloadString.index(payloadString.startIndex, offsetBy: 1)])
+            let action = Int(actionString)!
+            
+            let instrumentMessage = InstrumentMessage()
+            instrumentMessage.instrument = InstrumentMessage.Instrument(rawValue: instrumentString)!
+            instrumentMessage.action = action
+            self.delegate?.instrumentMessage?(service: self, peerId: peerId, message: instrumentMessage)
         } else {
             fatalError("Invalid protocol")
         }

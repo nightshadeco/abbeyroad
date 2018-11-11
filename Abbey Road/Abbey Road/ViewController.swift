@@ -118,7 +118,8 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
         musicService.send(colorName: "red")
         
         instrumentView = DrumInstrumentView(forAutoLayout: ())
-        if let instrumentView = instrumentView {
+        if let instrumentView = instrumentView as? DrumInstrumentView {
+            instrumentView.musicService = musicService
             view.addSubview(instrumentView)
             instrumentView.autoPinEdgesToSuperviewEdges()
         }

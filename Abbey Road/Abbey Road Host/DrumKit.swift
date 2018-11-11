@@ -24,14 +24,14 @@ class DrumKit {
         
         do {
             
-            let bassDrumFile    = try AKAudioFile(readFileName: "Drums/bass_drum_C1.wav")
-            let clapFile        = try AKAudioFile(readFileName: "Drums/clap_D#1.wav")
-            let closedHiHatFile = try AKAudioFile(readFileName: "Drums/closed_hi_hat_F#1.wav")
-            let hiTomFile       = try AKAudioFile(readFileName: "Drums/hi_tom_D2.wav")
-            let loTomFile       = try AKAudioFile(readFileName: "Drums/lo_tom_F1.wav")
-            let midTomFile      = try AKAudioFile(readFileName: "Drums/mid_tom_B1.wav")
-            let openHiHatFile   = try AKAudioFile(readFileName: "Drums/open_hi_hat_A#1.wav")
-            let snareDrumFile   = try AKAudioFile(readFileName: "Drums/snare_D1.wav")
+            let bassDrumFile = try AKAudioFile(forReading: Bundle.main.url(forResource: "bass_drum_C1", withExtension: "wav")!)
+            let clapFile = try AKAudioFile(forReading: Bundle.main.url(forResource: "clap_D#1", withExtension: "wav")!)
+            let closedHiHatFile = try AKAudioFile(forReading: Bundle.main.url(forResource: "closed_hi_hat_F#1", withExtension: "wav")!)
+            let hiTomFile = try AKAudioFile(forReading: Bundle.main.url(forResource: "hi_tom_D2", withExtension: "wav")!)
+            let loTomFile = try AKAudioFile(forReading: Bundle.main.url(forResource: "lo_tom_F1", withExtension: "wav")!)
+            let midTomFile = try AKAudioFile(forReading: Bundle.main.url(forResource: "mid_tom_B1", withExtension: "wav")!)
+            let openHiHatFile = try AKAudioFile(forReading: Bundle.main.url(forResource: "open_hi_hat_A#1", withExtension: "wav")!)
+            let snareDrumFile = try AKAudioFile(forReading: Bundle.main.url(forResource: "snare_D1", withExtension: "wav")!)
             
             try drums.loadAudioFiles([bassDrumFile,
                                       clapFile,
@@ -48,7 +48,7 @@ class DrumKit {
         }
     }
     
-    func Bit(volume : Double , pan : Double  , note : MIDINoteNumber  )  {
+    func Bit(volume : Double, pan : Double, note : MIDINoteNumber)  {
         drums.pan = pan;
         drums.volume = volume;
         try? drums.play(noteNumber: note);

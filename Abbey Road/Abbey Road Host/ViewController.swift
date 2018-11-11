@@ -8,8 +8,11 @@
 
 import UIKit
 import AudioKit
+import MultipeerConnectivity
 
-class ViewController: UIViewController , UIGestureRecognizerDelegate {
+class ViewController: UIViewController, UIGestureRecognizerDelegate {
+    
+    let musicService = MusicService()
 
     let kit = DrumKit()
     
@@ -19,6 +22,8 @@ class ViewController: UIViewController , UIGestureRecognizerDelegate {
         let tapGesture = UITapGestureRecognizer(target: self , action: #selector(Handler));
         tapGesture.delegate = self
         self.view.addGestureRecognizer(tapGesture);
+        
+        musicService.delegate = self
     }
     
     @objc func Handler(sender: UITapGestureRecognizer? = nil) {
@@ -53,7 +58,19 @@ class ViewController: UIViewController , UIGestureRecognizerDelegate {
             try? self.kit.drums.play(noteNumber: 36 - 12)
         }
     }
-    
 
 }
 
+extension ViewController: MusicServiceDelegate {
+    
+    func connectedDevicesChanged(service: MusicService, connectedDevices: [String]) {
+        OperationQueue.main.addOperation {
+            //            self.connectionsLabel.text = "Connections: \(connectedDevices)"
+        }
+    }
+    
+    func instrumentMessage(service: MusicService, peerId: MCPeerID, message: InstrumentMessage) {
+        try? self.kit.drums.play(noteNumber: 36 - 12)
+    }
+    
+}

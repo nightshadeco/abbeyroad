@@ -27,6 +27,18 @@
 		FABD3C1C21978846007F8BF5 /* InstrumentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABD3C1B21978846007F8BF5 /* InstrumentView.swift */; };
 		FABD3C1E21978D84007F8BF5 /* DrumInstrumentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABD3C1D21978D84007F8BF5 /* DrumInstrumentView.swift */; };
 		FABD3C2021978E0C007F8BF5 /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABD3C1F21978E0C007F8BF5 /* UIColor+Hex.swift */; };
+		FABD3C222197A2A4007F8BF5 /* InstrumentMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABD3C212197A2A4007F8BF5 /* InstrumentMessage.swift */; };
+		FABD3C232197B357007F8BF5 /* MusicService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA443D5721973D5900297B58 /* MusicService.swift */; };
+		FABD3C242197B361007F8BF5 /* InstrumentMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABD3C212197A2A4007F8BF5 /* InstrumentMessage.swift */; };
+		FABD3C262197B457007F8BF5 /* DrumKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABD3C252197B457007F8BF5 /* DrumKit.swift */; };
+		FABD3C432197B576007F8BF5 /* clap_D#1.wav in Resources */ = {isa = PBXBuildFile; fileRef = FABD3C3B2197B576007F8BF5 /* clap_D#1.wav */; };
+		FABD3C442197B576007F8BF5 /* hi_tom_D2.wav in Resources */ = {isa = PBXBuildFile; fileRef = FABD3C3C2197B576007F8BF5 /* hi_tom_D2.wav */; };
+		FABD3C452197B576007F8BF5 /* mid_tom_B1.wav in Resources */ = {isa = PBXBuildFile; fileRef = FABD3C3D2197B576007F8BF5 /* mid_tom_B1.wav */; };
+		FABD3C462197B576007F8BF5 /* closed_hi_hat_F#1.wav in Resources */ = {isa = PBXBuildFile; fileRef = FABD3C3E2197B576007F8BF5 /* closed_hi_hat_F#1.wav */; };
+		FABD3C472197B576007F8BF5 /* bass_drum_C1.wav in Resources */ = {isa = PBXBuildFile; fileRef = FABD3C3F2197B576007F8BF5 /* bass_drum_C1.wav */; };
+		FABD3C482197B576007F8BF5 /* lo_tom_F1.wav in Resources */ = {isa = PBXBuildFile; fileRef = FABD3C402197B576007F8BF5 /* lo_tom_F1.wav */; };
+		FABD3C492197B576007F8BF5 /* open_hi_hat_A#1.wav in Resources */ = {isa = PBXBuildFile; fileRef = FABD3C412197B576007F8BF5 /* open_hi_hat_A#1.wav */; };
+		FABD3C4A2197B576007F8BF5 /* snare_D1.wav in Resources */ = {isa = PBXBuildFile; fileRef = FABD3C422197B576007F8BF5 /* snare_D1.wav */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +70,16 @@
 		FABD3C1B21978846007F8BF5 /* InstrumentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstrumentView.swift; sourceTree = "<group>"; };
 		FABD3C1D21978D84007F8BF5 /* DrumInstrumentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrumInstrumentView.swift; sourceTree = "<group>"; };
 		FABD3C1F21978E0C007F8BF5 /* UIColor+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
+		FABD3C212197A2A4007F8BF5 /* InstrumentMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstrumentMessage.swift; sourceTree = "<group>"; };
+		FABD3C252197B457007F8BF5 /* DrumKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrumKit.swift; sourceTree = "<group>"; };
+		FABD3C3B2197B576007F8BF5 /* clap_D#1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "clap_D#1.wav"; sourceTree = "<group>"; };
+		FABD3C3C2197B576007F8BF5 /* hi_tom_D2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = hi_tom_D2.wav; sourceTree = "<group>"; };
+		FABD3C3D2197B576007F8BF5 /* mid_tom_B1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = mid_tom_B1.wav; sourceTree = "<group>"; };
+		FABD3C3E2197B576007F8BF5 /* closed_hi_hat_F#1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "closed_hi_hat_F#1.wav"; sourceTree = "<group>"; };
+		FABD3C3F2197B576007F8BF5 /* bass_drum_C1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = bass_drum_C1.wav; sourceTree = "<group>"; };
+		FABD3C402197B576007F8BF5 /* lo_tom_F1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = lo_tom_F1.wav; sourceTree = "<group>"; };
+		FABD3C412197B576007F8BF5 /* open_hi_hat_A#1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "open_hi_hat_A#1.wav"; sourceTree = "<group>"; };
+		FABD3C422197B576007F8BF5 /* snare_D1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = snare_D1.wav; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +167,7 @@
 				FA443D59219752FB00297B58 /* ColorMessage.swift */,
 				FA443D5B2197535800297B58 /* BitStream.swift */,
 				FA443D5D219753AC00297B58 /* BitStreamCodable.swift */,
+				FABD3C212197A2A4007F8BF5 /* InstrumentMessage.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -153,13 +176,30 @@
 			isa = PBXGroup;
 			children = (
 				FABD3C0B21977A36007F8BF5 /* AppDelegate.swift */,
+				FABD3C252197B457007F8BF5 /* DrumKit.swift */,
 				FABD3C0D21977A36007F8BF5 /* ViewController.swift */,
 				FABD3C0F21977A36007F8BF5 /* Main.storyboard */,
+				FABD3C3A2197B576007F8BF5 /* Drums */,
 				FABD3C1221977A36007F8BF5 /* Assets.xcassets */,
 				FABD3C1421977A36007F8BF5 /* LaunchScreen.storyboard */,
 				FABD3C1721977A36007F8BF5 /* Info.plist */,
 			);
 			path = "Abbey Road Host";
+			sourceTree = "<group>";
+		};
+		FABD3C3A2197B576007F8BF5 /* Drums */ = {
+			isa = PBXGroup;
+			children = (
+				FABD3C3B2197B576007F8BF5 /* clap_D#1.wav */,
+				FABD3C3C2197B576007F8BF5 /* hi_tom_D2.wav */,
+				FABD3C3D2197B576007F8BF5 /* mid_tom_B1.wav */,
+				FABD3C3E2197B576007F8BF5 /* closed_hi_hat_F#1.wav */,
+				FABD3C3F2197B576007F8BF5 /* bass_drum_C1.wav */,
+				FABD3C402197B576007F8BF5 /* lo_tom_F1.wav */,
+				FABD3C412197B576007F8BF5 /* open_hi_hat_A#1.wav */,
+				FABD3C422197B576007F8BF5 /* snare_D1.wav */,
+			);
+			path = Drums;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -256,8 +296,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				FABD3C1621977A36007F8BF5 /* LaunchScreen.storyboard in Resources */,
+				FABD3C482197B576007F8BF5 /* lo_tom_F1.wav in Resources */,
 				FABD3C1321977A36007F8BF5 /* Assets.xcassets in Resources */,
+				FABD3C492197B576007F8BF5 /* open_hi_hat_A#1.wav in Resources */,
 				FABD3C1121977A36007F8BF5 /* Main.storyboard in Resources */,
+				FABD3C432197B576007F8BF5 /* clap_D#1.wav in Resources */,
+				FABD3C442197B576007F8BF5 /* hi_tom_D2.wav in Resources */,
+				FABD3C462197B576007F8BF5 /* closed_hi_hat_F#1.wav in Resources */,
+				FABD3C452197B576007F8BF5 /* mid_tom_B1.wav in Resources */,
+				FABD3C4A2197B576007F8BF5 /* snare_D1.wav in Resources */,
+				FABD3C472197B576007F8BF5 /* bass_drum_C1.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -333,6 +381,7 @@
 				FA443D3F21972ECE00297B58 /* AppDelegate.swift in Sources */,
 				FA443D5E219753AC00297B58 /* BitStreamCodable.swift in Sources */,
 				FA443D5821973D5900297B58 /* MusicService.swift in Sources */,
+				FABD3C222197A2A4007F8BF5 /* InstrumentMessage.swift in Sources */,
 				FABD3C1E21978D84007F8BF5 /* DrumInstrumentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -341,7 +390,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FABD3C242197B361007F8BF5 /* InstrumentMessage.swift in Sources */,
 				FABD3C0E21977A36007F8BF5 /* ViewController.swift in Sources */,
+				FABD3C232197B357007F8BF5 /* MusicService.swift in Sources */,
+				FABD3C262197B457007F8BF5 /* DrumKit.swift in Sources */,
 				FABD3C0C21977A36007F8BF5 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
