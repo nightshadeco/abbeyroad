@@ -21,10 +21,10 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </arscnView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9QS-PB-vGC">
-                                <rect key="frame" x="319" y="607" width="40" height="40"/>
+                                <rect key="frame" x="279" y="567" width="80" height="80"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="HKw-6m-rHT"/>
-                                    <constraint firstAttribute="width" constant="40" id="cXj-PB-cTH"/>
+                                    <constraint firstAttribute="height" constant="80" id="HKw-6m-rHT"/>
+                                    <constraint firstAttribute="width" constant="80" id="cXj-PB-cTH"/>
                                 </constraints>
                                 <state key="normal" image="drumicon">
                                     <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -35,10 +35,10 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QEx-c7-mOh">
-                                <rect key="frame" x="271" y="607" width="40" height="40"/>
+                                <rect key="frame" x="191" y="567" width="80" height="80"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="40" id="McQ-oH-Few"/>
-                                    <constraint firstAttribute="height" constant="40" id="ebz-Cl-4wP"/>
+                                    <constraint firstAttribute="width" constant="80" id="McQ-oH-Few"/>
+                                    <constraint firstAttribute="height" constant="80" id="ebz-Cl-4wP"/>
                                 </constraints>
                                 <state key="normal" image="harpicon"/>
                                 <connections>
