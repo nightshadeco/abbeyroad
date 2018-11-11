@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2885E092FA93704755902488 /* Pods_Abbey_Road.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6392E2B5E8DA7B95CBD1B56A /* Pods_Abbey_Road.framework */; };
+		B2C17C392197C17100E42C9B /* HarpInstrumentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C17C382197C17100E42C9B /* HarpInstrumentView.swift */; };
 		F8A0CB6431FE6F174A3A6ED7 /* Pods_Abbey_Road_Host.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CEEC61AE0EBB037B3654E03 /* Pods_Abbey_Road_Host.framework */; };
 		FA443D3F21972ECE00297B58 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA443D3E21972ECE00297B58 /* AppDelegate.swift */; };
 		FA443D4121972ECE00297B58 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = FA443D4021972ECE00297B58 /* art.scnassets */; };
@@ -50,6 +51,7 @@
 		9AA9B5A2325D7A255061F12F /* Pods-Abbey Road Host.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Abbey Road Host.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Abbey Road Host/Pods-Abbey Road Host.debug.xcconfig"; sourceTree = "<group>"; };
 		AB929CFA64DBF039C6F5DAA1 /* Pods-Abbey Road.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Abbey Road.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Abbey Road/Pods-Abbey Road.debug.xcconfig"; sourceTree = "<group>"; };
 		B1831574AB1A90E25A295619 /* Pods-Abbey Road Host.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Abbey Road Host.release.xcconfig"; path = "Pods/Target Support Files/Pods-Abbey Road Host/Pods-Abbey Road Host.release.xcconfig"; sourceTree = "<group>"; };
+		B2C17C382197C17100E42C9B /* HarpInstrumentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HarpInstrumentView.swift; sourceTree = "<group>"; };
 		FA443D3B21972ECE00297B58 /* Abbey Road.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Abbey Road.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA443D3E21972ECE00297B58 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FA443D4021972ECE00297B58 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
@@ -159,6 +161,7 @@
 				FABD3C1B21978846007F8BF5 /* InstrumentView.swift */,
 				FABD3C1D21978D84007F8BF5 /* DrumInstrumentView.swift */,
 				FABD3C1F21978E0C007F8BF5 /* UIColor+Hex.swift */,
+				B2C17C382197C17100E42C9B /* HarpInstrumentView.swift */,
 			);
 			path = "Abbey Road";
 			sourceTree = "<group>";
@@ -383,6 +386,7 @@
 				FA443D5A219752FB00297B58 /* ColorMessage.swift in Sources */,
 				FABD3C2021978E0C007F8BF5 /* UIColor+Hex.swift in Sources */,
 				FA443D5C2197535800297B58 /* BitStream.swift in Sources */,
+				B2C17C392197C17100E42C9B /* HarpInstrumentView.swift in Sources */,
 				FA443D3F21972ECE00297B58 /* AppDelegate.swift in Sources */,
 				FA443D5E219753AC00297B58 /* BitStreamCodable.swift in Sources */,
 				FA443D5821973D5900297B58 /* MusicService.swift in Sources */,
@@ -564,7 +568,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = AEX8D6Z45H;
+				DEVELOPMENT_TEAM = ZBJT653L4M;
 				INFOPLIST_FILE = "Abbey Road/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -584,7 +588,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = AEX8D6Z45H;
+				DEVELOPMENT_TEAM = ZBJT653L4M;
 				INFOPLIST_FILE = "Abbey Road/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
