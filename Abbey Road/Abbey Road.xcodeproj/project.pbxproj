@@ -179,7 +179,7 @@
 				FABD3C252197B457007F8BF5 /* DrumKit.swift */,
 				FABD3C0D21977A36007F8BF5 /* ViewController.swift */,
 				FABD3C0F21977A36007F8BF5 /* Main.storyboard */,
-				FABD3C3A2197B576007F8BF5 /* Drums */,
+				FABD3C3A2197B576007F8BF5 /* Sounds */,
 				FABD3C1221977A36007F8BF5 /* Assets.xcassets */,
 				FABD3C1421977A36007F8BF5 /* LaunchScreen.storyboard */,
 				FABD3C1721977A36007F8BF5 /* Info.plist */,
@@ -187,7 +187,7 @@
 			path = "Abbey Road Host";
 			sourceTree = "<group>";
 		};
-		FABD3C3A2197B576007F8BF5 /* Drums */ = {
+		FABD3C3A2197B576007F8BF5 /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
 				FABD3C3B2197B576007F8BF5 /* clap_D#1.wav */,
@@ -199,7 +199,7 @@
 				FABD3C412197B576007F8BF5 /* open_hi_hat_A#1.wav */,
 				FABD3C422197B576007F8BF5 /* snare_D1.wav */,
 			);
-			path = Drums;
+			path = Sounds;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina4_7" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -15,22 +15,32 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Abbey_Road_Host" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hostlogo" translatesAutoresizingMaskIntoConstraints="NO" id="Yhg-pf-P4H">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                             </imageView>
+                            <sceneKitView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.29999999999999999" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jq7-pL-Ph8">
+                                <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                            </sceneKitView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="Jq7-pL-Ph8" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="5Lt-4M-BWV"/>
                             <constraint firstItem="Yhg-pf-P4H" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailing" id="IhH-tK-w3o"/>
+                            <constraint firstAttribute="bottom" secondItem="Jq7-pL-Ph8" secondAttribute="bottom" id="Q2P-6X-fL3"/>
+                            <constraint firstAttribute="trailing" secondItem="Jq7-pL-Ph8" secondAttribute="trailing" id="R4f-zu-0jY"/>
                             <constraint firstItem="Yhg-pf-P4H" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="cii-4S-L4r"/>
                             <constraint firstItem="Yhg-pf-P4H" firstAttribute="bottom" secondItem="8bC-Xf-vdC" secondAttribute="bottom" id="hDk-R9-wMk"/>
                             <constraint firstItem="Yhg-pf-P4H" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="pK1-Vm-QFN"/>
+                            <constraint firstItem="Jq7-pL-Ph8" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="woy-4V-V3e"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="sceneView" destination="Jq7-pL-Ph8" id="hBm-Lb-45v"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
