@@ -46,6 +46,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
         sceneView.scene = scene
         
         musicService.delegate = self
+        musicService.startPeer()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -73,8 +74,8 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
     func renderer(_ renderer: SCNSceneRenderer, nodeFor anchor: ARAnchor) -> SCNNode? {
         print("Marker detected")
         let node = SCNNode()
-        node.geometry = SCNBox(width: 0.1, height: 0.1, length: 0.1, chamferRadius: 0)
-        node.pivot = SCNMatrix4MakeTranslation(0, -0.05, 0)
+        node.geometry = SCNBox(width: 0.01, height: 0.01, length: 0.01, chamferRadius: 0)
+        node.pivot = SCNMatrix4MakeTranslation(0, -0.005, 0)
         node.geometry?.firstMaterial?.diffuse.contents = UIColor.yellow
         cubeNode = node
         sceneView.session.setWorldOrigin(relativeTransform: anchor.transform)
@@ -98,7 +99,6 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
     }
     
     func session(_ session: ARSession, didUpdate frame: ARFrame) {
-        NSLog("\(frame.camera.transform.columns.3.debugDescription)")
         let x = frame.camera.transform.columns.3.x
         let y = frame.camera.transform.columns.3.y
         let z = frame.camera.transform.columns.3.z
@@ -161,7 +161,6 @@ extension ViewController: MusicServiceDelegate {
     }
     
     func positionChanged(service: MusicService, peerId: MCPeerID, position: simd_float3) {
-        NSLog("Position changed: \(position.debugDescription)")
         if peerNodes[peerId] == nil {
             let node = SCNNode()
             node.geometry = SCNSphere(radius: 0.05)

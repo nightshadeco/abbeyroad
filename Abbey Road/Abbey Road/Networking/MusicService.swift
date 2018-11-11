@@ -38,15 +38,20 @@ class MusicService: NSObject {
         super.init()
         
         serviceAdvertiser.delegate = self
-        serviceAdvertiser.startAdvertisingPeer()
-        
         serviceBrowser.delegate = self
-        serviceBrowser.startBrowsingForPeers()
     }
     
     deinit {
         serviceAdvertiser.stopAdvertisingPeer()
         serviceBrowser.stopBrowsingForPeers()
+    }
+    
+    func startHost() {
+        serviceAdvertiser.startAdvertisingPeer()
+    }
+    
+    func startPeer() {
+        serviceBrowser.startBrowsingForPeers()
     }
     
     func send(colorName: String) {
@@ -129,14 +134,12 @@ extension MusicService : MCSessionDelegate {
     }
     
     func session(_ session: MCSession, didReceive data: Data, fromPeer peerId: MCPeerID) {
-        NSLog("%@", "didReceiveData: \(data)")
         let str = String(data: data, encoding: .utf8)!
         let index = str.index(after: str.startIndex)
         let payloadString = String(str[index...])
         if str.starts(with: "C") {
             self.delegate?.colorChanged?(service: self, peerId: peerId, colorString: payloadString)
         } else if str.starts(with: "P") {
-            NSLog("%@", "position change: \(payloadString)")
             let positionSplits = payloadString.split(separator: ",")
             let x = Float(positionSplits[0])!
             let y = Float(positionSplits[1])!
@@ -155,7 +158,7 @@ extension MusicService : MCSessionDelegate {
             instrumentMessage.action = action
             self.delegate?.instrumentMessage?(service: self, peerId: peerId, message: instrumentMessage)
         } else {
-            fatalError("Invalid protocol")
+            fatalError("Invalid protocol \(str)")
         }
     }
     
