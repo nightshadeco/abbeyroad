@@ -31,13 +31,15 @@ class HarpInstrumentView: UIView {
         stackView.addArrangedSubview(harpButton)
         harpButton.autoSetDimensions(to: CGSize(width: 1, height: 1))
 //        harpButton.addTarget(self, action: #selector(harpTapped), for: .touchDown)
+        stackView.isUserInteractionEnabled = false
+        
         let tapGesture = UITapGestureRecognizer()
         tapGesture.addTarget(self, action: #selector(viewTapped))
         addGestureRecognizer(tapGesture)
         
         let panGesture = UIPanGestureRecognizer()
         panGesture.addTarget(self, action: #selector(viewPanned))
-//        addGestureRecognizer(panGesture)
+        addGestureRecognizer(panGesture)
         
         addSubview(stackView)
         stackView.autoPinEdgesToSuperviewEdges()
@@ -51,7 +53,10 @@ class HarpInstrumentView: UIView {
             harpstringView.autoPinEdge(toSuperviewEdge: .right)
             addConstraint(NSLayoutConstraint(item: harpstringView, attribute: .top, relatedBy: .equal, toItem: self, attribute: .bottom, multiplier: CGFloat(i+1)/6.0, constant: 0))
             harpstringView.autoSetDimension(.height, toSize: 2.0 * (5.0-CGFloat(i)) + 2.0)
+            harpstringView.isUserInteractionEnabled = false
         }
+        
+        isUserInteractionEnabled = true
  
     }
     
