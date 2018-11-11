@@ -54,6 +54,16 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
         
         musicService.delegate = self
         musicService.startPeer()
+        
+        
+        
+//        view.addSubview(backbutton)
+//        backbutton.autoPinEdge(toSuperviewEdge: .left)
+//        backbutton.autoPinEdge(toSuperviewEdge: .right)
+//        backbutton.autoPinEdge(toSuperviewEdge: .top)
+//        backbutton.autoSetDimension(.height, toSize: 40)
+//        
+//        backbutton.addTarget(self, action: #selector(backTapped), for: .touchUpInside)
 //        
 //        self.drumButton.transform = self.drumButton.transform.rotated(by: CGFloat(-1*M_PI_2))
 //        self.harpButton.transform = self.harpButton.transform.rotated(by: CGFloat(-1*M_PI_2))
@@ -77,6 +87,13 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
         //instruments2Used[hiv] = false
         
         lastPositionUpdate = Date()
+    }
+    
+    @IBAction func backTapped(sender: UIButton!) {
+        print("Going back")
+        sender.removeFromSuperview()
+        instrumentView?.removeFromSuperview()
+        instrumentView = nil
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -157,12 +174,21 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
 //
 //        }
         
+        
         instrumentView = DrumInstrumentView(forAutoLayout: ())
         if let instrumentView = instrumentView as? DrumInstrumentView {
             instrumentView.musicService = musicService
             view.addSubview(instrumentView)
             instrumentView.autoPinEdgesToSuperviewEdges()
         }
+        
+        let backbutton = UIButton(forAutoLayout: ())
+        backbutton.setTitle("X", for: .normal)
+        view.addSubview(backbutton)
+        backbutton.autoPinEdge(toSuperviewEdge: .left)
+        backbutton.autoPinEdge(toSuperviewEdge: .top)
+        
+        backbutton.addTarget(self, action: #selector(backTapped), for: .touchUpInside)
     }
     
     @IBAction func greenTapped() {
@@ -175,6 +201,14 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
             view.addSubview(instrumentView)
             instrumentView.autoPinEdgesToSuperviewEdges()
         }
+        
+        let backbutton = UIButton(forAutoLayout: ())
+        backbutton.setTitle("X", for: .normal)
+        view.addSubview(backbutton)
+        backbutton.autoPinEdge(toSuperviewEdge: .left)
+        backbutton.autoPinEdge(toSuperviewEdge: .top)
+        
+        backbutton.addTarget(self, action: #selector(backTapped), for: .touchUpInside)
     }
     
 }
