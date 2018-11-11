@@ -30,10 +30,10 @@ class HarpInstrumentView: UIView {
         stackView.axis = .vertical
         stackView.distribution = .fill
         
-//        let harpButton = UIButton(forAutoLayout: ())
-//        harpButton.setImage(UIImage(named: "harp"), for: .normal)
-//        stackView.addArrangedSubview(harpButton)
-//        harpButton.autoSetDimensions(to: CGSize(width: 1, height: 1))
+        let harpButton = UIButton(forAutoLayout: ())
+        harpButton.setImage(UIImage(named: "harp"), for: .normal)
+        stackView.addArrangedSubview(harpButton)
+        harpButton.autoSetDimensions(to: CGSize(width: 1, height: 1))
 //        harpButton.addTarget(self, action: #selector(harpTapped), for: .touchDown)
         let tapGesture = UITapGestureRecognizer()
         tapGesture.addTarget(self, action: #selector(viewTapped))
