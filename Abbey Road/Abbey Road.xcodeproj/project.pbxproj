@@ -39,6 +39,7 @@
 		FABD3C482197B576007F8BF5 /* lo_tom_F1.wav in Resources */ = {isa = PBXBuildFile; fileRef = FABD3C402197B576007F8BF5 /* lo_tom_F1.wav */; };
 		FABD3C492197B576007F8BF5 /* open_hi_hat_A#1.wav in Resources */ = {isa = PBXBuildFile; fileRef = FABD3C412197B576007F8BF5 /* open_hi_hat_A#1.wav */; };
 		FABD3C4A2197B576007F8BF5 /* snare_D1.wav in Resources */ = {isa = PBXBuildFile; fileRef = FABD3C422197B576007F8BF5 /* snare_D1.wav */; };
+		FABD3C4C2197CA96007F8BF5 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = FABD3C4B2197CA96007F8BF5 /* art.scnassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -80,6 +81,7 @@
 		FABD3C402197B576007F8BF5 /* lo_tom_F1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = lo_tom_F1.wav; sourceTree = "<group>"; };
 		FABD3C412197B576007F8BF5 /* open_hi_hat_A#1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "open_hi_hat_A#1.wav"; sourceTree = "<group>"; };
 		FABD3C422197B576007F8BF5 /* snare_D1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = snare_D1.wav; sourceTree = "<group>"; };
+		FABD3C4B2197CA96007F8BF5 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -178,6 +180,7 @@
 				FABD3C0B21977A36007F8BF5 /* AppDelegate.swift */,
 				FABD3C252197B457007F8BF5 /* DrumKit.swift */,
 				FABD3C0D21977A36007F8BF5 /* ViewController.swift */,
+				FABD3C4B2197CA96007F8BF5 /* art.scnassets */,
 				FABD3C0F21977A36007F8BF5 /* Main.storyboard */,
 				FABD3C3A2197B576007F8BF5 /* Sounds */,
 				FABD3C1221977A36007F8BF5 /* Assets.xcassets */,
@@ -296,6 +299,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FABD3C1621977A36007F8BF5 /* LaunchScreen.storyboard in Resources */,
+				FABD3C4C2197CA96007F8BF5 /* art.scnassets in Resources */,
 				FABD3C482197B576007F8BF5 /* lo_tom_F1.wav in Resources */,
 				FABD3C1321977A36007F8BF5 /* Assets.xcassets in Resources */,
 				FABD3C492197B576007F8BF5 /* open_hi_hat_A#1.wav in Resources */,

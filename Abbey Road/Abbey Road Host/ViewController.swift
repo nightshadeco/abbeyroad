@@ -19,6 +19,9 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
 
     let kit = DrumKit()
     
+    var angles = [MCPeerID : Float]()
+    var pointerNodes = [MCPeerID : SCNNode]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
        
@@ -26,7 +29,7 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
         tapGesture.delegate = self
         self.view.addGestureRecognizer(tapGesture)
         
-        sceneView.scene = SCNScene(named: "host")
+        sceneView.scene = SCNScene(named: "art.scnassets/scene.scn")!
         
         musicService.delegate = self
     }
@@ -83,6 +86,24 @@ extension ViewController: MusicServiceDelegate {
             } else if message.action == 2 {
                 try? self.kit.drums.play(noteNumber: 46 - 12)
             }
+        }
+    }
+    
+    func positionChanged(service: MusicService, peerId: MCPeerID, position: simd_float3) {
+        if peerId.displayName == UIDevice.current.name {
+            return
+        }
+        
+        DispatchQueue.main.async {
+            if self.pointerNodes[peerId] == nil {
+                self.pointerNodes[peerId] = self.sceneView.scene?.rootNode.childNode(withName: "pointer", recursively: true)
+                self.pointerNodes[peerId]?.isHidden = false
+            }
+            let projectedPos = simd_float2(position.x, position.z)
+            let normalized = simd_normalize(projectedPos)
+            let angle = atan2(-normalized.x, -normalized.y)
+            self.angles[peerId] = angle
+            self.pointerNodes[peerId]?.eulerAngles.z = angle
         }
     }
     
