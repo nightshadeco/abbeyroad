@@ -37,7 +37,7 @@ class HarpInstrumentView: UIView {
         
         let panGesture = UIPanGestureRecognizer()
         panGesture.addTarget(self, action: #selector(viewPanned))
-        addGestureRecognizer(panGesture)
+//        addGestureRecognizer(panGesture)
         
         addSubview(stackView)
         stackView.autoPinEdgesToSuperviewEdges()
