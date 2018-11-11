@@ -14,6 +14,8 @@ import PureLayout
 
 class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
 
+    @IBOutlet weak var drumButton: UIButton!
+    @IBOutlet weak var harpButton: UIButton!
     @IBOutlet var sceneView: ARSCNView!
     
     let musicService = MusicService()
@@ -22,6 +24,9 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
     var peerNodes = [MCPeerID : SCNNode]()
     
     var instrumentView: UIView?
+    
+    var instruments = [UIView]()
+    //var instruments2Used = [UIView : Bool]()
     
     override var prefersStatusBarHidden: Bool {
         return true
@@ -47,6 +52,27 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
         
         musicService.delegate = self
         musicService.startPeer()
+        
+        self.drumButton.transform = self.drumButton.transform.rotated(by: CGFloat(-1*M_PI_2))
+        self.harpButton.transform = self.harpButton.transform.rotated(by: CGFloat(-1*M_PI_2))
+        
+//        var div = DrumInstrumentView(forAutoLayout: ())
+//        if let div = div as? DrumInstrumentView {
+//            div.musicService = musicService
+//            view.addSubview(div)
+//            div.autoPinEdgesToSuperviewEdges()
+//        }
+//        instruments.append(div)
+        //instruments2Used[div] = false
+        
+//        var hiv = HarpInstrumentView(forAutoLayout: ())
+//        if let hiv = hiv as? HarpInstrumentView {
+//            hiv.musicService = musicService
+//            view.addSubview(hiv)
+//            hiv.autoPinEdgesToSuperviewEdges()
+//        }
+//        instruments.append(hiv)
+        //instruments2Used[hiv] = false
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -116,6 +142,12 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
     @IBAction func redTapped() {
         change(color: .red)
         musicService.send(colorName: "red")
+        
+        
+//        if instruments.count > 0 {
+//            var instrument = instruments.remove(at: 0)
+//
+//        }
         
         instrumentView = DrumInstrumentView(forAutoLayout: ())
         if let instrumentView = instrumentView as? DrumInstrumentView {

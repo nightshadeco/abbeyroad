@@ -12,7 +12,7 @@ DEPENDENCIES:
   - PureLayout
 
 SPEC REPOS:
-  https://github.com/CocoaPods/Specs.git:
+  https://github.com/cocoapods/specs.git:
     - AudioKit
     - PureLayout
 
@@ -22,4 +22,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 04e99af39419762c47ae77cae14932c46598a0c3
 
-COCOAPODS: 1.5.0
+COCOAPODS: 1.5.3

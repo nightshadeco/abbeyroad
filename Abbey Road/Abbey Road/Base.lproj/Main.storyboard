@@ -20,24 +20,27 @@
                             <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BrB-h1-WRS">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </arscnView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9QS-PB-vGC">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9QS-PB-vGC">
                                 <rect key="frame" x="319" y="607" width="40" height="40"/>
-                                <color key="backgroundColor" red="1" green="0.0" blue="0.028078071964937834" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="HKw-6m-rHT"/>
                                     <constraint firstAttribute="width" constant="40" id="cXj-PB-cTH"/>
                                 </constraints>
+                                <state key="normal" image="drums">
+                                    <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="titleShadowColor" red="0.95686274510000002" green="0.50588235290000005" blue="0.48627450979999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="redTapped" destination="BV1-FR-VrT" eventType="touchUpInside" id="kYq-uY-ZZx"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QEx-c7-mOh">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QEx-c7-mOh">
                                 <rect key="frame" x="271" y="607" width="40" height="40"/>
-                                <color key="backgroundColor" red="0.0" green="1" blue="0.097714149764354996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="40" id="McQ-oH-Few"/>
                                     <constraint firstAttribute="height" constant="40" id="ebz-Cl-4wP"/>
                                 </constraints>
+                                <state key="normal" image="harp"/>
                                 <connections>
                                     <action selector="greenTapped" destination="BV1-FR-VrT" eventType="touchUpInside" id="Ftg-k6-arj"/>
                                 </connections>
@@ -57,6 +60,8 @@
                         <viewLayoutGuide key="safeArea" id="fQZ-KI-GVf"/>
                     </view>
                     <connections>
+                        <outlet property="drumButton" destination="9QS-PB-vGC" id="2QC-k4-7mv"/>
+                        <outlet property="harpButton" destination="QEx-c7-mOh" id="3Dr-SQ-uuS"/>
                         <outlet property="sceneView" destination="BrB-h1-WRS" id="5nT-qQ-ynl"/>
                     </connections>
                 </viewController>
@@ -65,4 +70,8 @@
             <point key="canvasLocation" x="136.80000000000001" y="132.68365817091455"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="drums" width="47.759998321533203" height="55.919998168945312"/>
+        <image name="harp" width="57.599998474121094" height="32.880001068115234"/>
+    </resources>
 </document>
