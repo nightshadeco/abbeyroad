@@ -28,6 +28,8 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
     var instruments = [UIView]()
     //var instruments2Used = [UIView : Bool]()
     
+    var lastPositionUpdate: Date!
+    
     override var prefersStatusBarHidden: Bool {
         return true
     }
@@ -73,6 +75,8 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
 //        }
 //        instruments.append(hiv)
         //instruments2Used[hiv] = false
+        
+        lastPositionUpdate = Date()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -125,10 +129,14 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
     }
     
     func session(_ session: ARSession, didUpdate frame: ARFrame) {
-        let x = frame.camera.transform.columns.3.x
-        let y = frame.camera.transform.columns.3.y
-        let z = frame.camera.transform.columns.3.z
-        musicService.send(position: simd_float3(x, y, z))
+        let newDate = Date()
+        if newDate.timeIntervalSince(lastPositionUpdate) >= 0.04 {
+            let x = frame.camera.transform.columns.3.x
+            let y = frame.camera.transform.columns.3.y
+            let z = frame.camera.transform.columns.3.z
+            musicService.send(position: simd_float3(x, y, z))
+            lastPositionUpdate = newDate
+        }
     }
     
     // MARK: - Color and actions

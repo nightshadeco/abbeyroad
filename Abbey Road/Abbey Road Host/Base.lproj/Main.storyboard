@@ -18,16 +18,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="whiteonblack" translatesAutoresizingMaskIntoConstraints="NO" id="Yhg-pf-P4H">
-                                <rect key="frame" x="163.5" y="87.5" width="340" height="200"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="200" id="Nrs-F8-2Lf"/>
-                                    <constraint firstAttribute="width" constant="340" id="wBT-sV-fEy"/>
-                                </constraints>
-                            </imageView>
-                            <sceneKitView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.29999999999999999" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jq7-pL-Ph8">
+                            <sceneKitView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jq7-pL-Ph8">
                                 <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                             </sceneKitView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="whitelogo" translatesAutoresizingMaskIntoConstraints="NO" id="Yhg-pf-P4H">
+                                <rect key="frame" x="13.5" y="-12.5" width="640" height="400"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="400" id="Nrs-F8-2Lf"/>
+                                    <constraint firstAttribute="width" constant="640" id="wBT-sV-fEy"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -50,6 +50,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="whiteonblack" width="410.39999389648438" height="179.52000427246094"/>
+        <image name="whitelogo" width="410.39999389648438" height="179.52000427246094"/>
     </resources>
 </document>

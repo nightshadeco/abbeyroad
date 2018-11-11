@@ -10,9 +10,9 @@
 		2885E092FA93704755902488 /* Pods_Abbey_Road.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6392E2B5E8DA7B95CBD1B56A /* Pods_Abbey_Road.framework */; };
 		B2C17C392197C17100E42C9B /* HarpInstrumentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C17C382197C17100E42C9B /* HarpInstrumentView.swift */; };
 		B2C17C3D2198198C00E42C9B /* SamplerInstrumentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C17C3C2198198C00E42C9B /* SamplerInstrumentView.swift */; };
-		B2C17C4121981B0C00E42C9B /* grime_kick3.wav in Resources */ = {isa = PBXBuildFile; fileRef = B2C17C3E21981B0C00E42C9B /* grime_kick3.wav */; };
-		B2C17C4221981B0C00E42C9B /* hiphop_closed_Hihat6.wav in Resources */ = {isa = PBXBuildFile; fileRef = B2C17C3F21981B0C00E42C9B /* hiphop_closed_Hihat6.wav */; };
-		B2C17C4321981B0C00E42C9B /* hiphop_snare5_G#.wav in Resources */ = {isa = PBXBuildFile; fileRef = B2C17C4021981B0C00E42C9B /* hiphop_snare5_G#.wav */; };
+		B2C17C4121981B0C00E42C9B /* grime_kick3_C1.wav in Resources */ = {isa = PBXBuildFile; fileRef = B2C17C3E21981B0C00E42C9B /* grime_kick3_C1.wav */; };
+		B2C17C4221981B0C00E42C9B /* hiphop_closed_Hihat6_F#1.wav in Resources */ = {isa = PBXBuildFile; fileRef = B2C17C3F21981B0C00E42C9B /* hiphop_closed_Hihat6_F#1.wav */; };
+		B2C17C4321981B0C00E42C9B /* hiphop_snare5_D1.wav in Resources */ = {isa = PBXBuildFile; fileRef = B2C17C4021981B0C00E42C9B /* hiphop_snare5_D1.wav */; };
 		F8A0CB6431FE6F174A3A6ED7 /* Pods_Abbey_Road_Host.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CEEC61AE0EBB037B3654E03 /* Pods_Abbey_Road_Host.framework */; };
 		FA443D3F21972ECE00297B58 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA443D3E21972ECE00297B58 /* AppDelegate.swift */; };
 		FA443D4121972ECE00297B58 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = FA443D4021972ECE00297B58 /* art.scnassets */; };
@@ -57,9 +57,9 @@
 		B1831574AB1A90E25A295619 /* Pods-Abbey Road Host.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Abbey Road Host.release.xcconfig"; path = "Pods/Target Support Files/Pods-Abbey Road Host/Pods-Abbey Road Host.release.xcconfig"; sourceTree = "<group>"; };
 		B2C17C382197C17100E42C9B /* HarpInstrumentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HarpInstrumentView.swift; sourceTree = "<group>"; };
 		B2C17C3C2198198C00E42C9B /* SamplerInstrumentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SamplerInstrumentView.swift; sourceTree = "<group>"; };
-		B2C17C3E21981B0C00E42C9B /* grime_kick3.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = grime_kick3.wav; path = ../../../../../../Downloads/Drums/grime_kick3.wav; sourceTree = "<group>"; };
-		B2C17C3F21981B0C00E42C9B /* hiphop_closed_Hihat6.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = hiphop_closed_Hihat6.wav; path = ../../../../../../Downloads/Drums/hiphop_closed_Hihat6.wav; sourceTree = "<group>"; };
-		B2C17C4021981B0C00E42C9B /* hiphop_snare5_G#.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = "hiphop_snare5_G#.wav"; path = "../../../../../../Downloads/Drums/hiphop_snare5_G#.wav"; sourceTree = "<group>"; };
+		B2C17C3E21981B0C00E42C9B /* grime_kick3_C1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = grime_kick3_C1.wav; sourceTree = "<group>"; };
+		B2C17C3F21981B0C00E42C9B /* hiphop_closed_Hihat6_F#1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "hiphop_closed_Hihat6_F#1.wav"; sourceTree = "<group>"; };
+		B2C17C4021981B0C00E42C9B /* hiphop_snare5_D1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = hiphop_snare5_D1.wav; sourceTree = "<group>"; };
 		FA443D3B21972ECE00297B58 /* Abbey Road.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Abbey Road.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA443D3E21972ECE00297B58 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FA443D4021972ECE00297B58 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
@@ -206,9 +206,9 @@
 		FABD3C3A2197B576007F8BF5 /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
-				B2C17C3E21981B0C00E42C9B /* grime_kick3.wav */,
-				B2C17C3F21981B0C00E42C9B /* hiphop_closed_Hihat6.wav */,
-				B2C17C4021981B0C00E42C9B /* hiphop_snare5_G#.wav */,
+				B2C17C3E21981B0C00E42C9B /* grime_kick3_C1.wav */,
+				B2C17C3F21981B0C00E42C9B /* hiphop_closed_Hihat6_F#1.wav */,
+				B2C17C4021981B0C00E42C9B /* hiphop_snare5_D1.wav */,
 				FABD3C3B2197B576007F8BF5 /* clap_D#1.wav */,
 				FABD3C3C2197B576007F8BF5 /* hi_tom_D2.wav */,
 				FABD3C3D2197B576007F8BF5 /* mid_tom_B1.wav */,
@@ -318,10 +318,10 @@
 				FABD3C4C2197CA96007F8BF5 /* art.scnassets in Resources */,
 				FABD3C482197B576007F8BF5 /* lo_tom_F1.wav in Resources */,
 				FABD3C1321977A36007F8BF5 /* Assets.xcassets in Resources */,
-				B2C17C4221981B0C00E42C9B /* hiphop_closed_Hihat6.wav in Resources */,
-				B2C17C4321981B0C00E42C9B /* hiphop_snare5_G#.wav in Resources */,
+				B2C17C4221981B0C00E42C9B /* hiphop_closed_Hihat6_F#1.wav in Resources */,
+				B2C17C4321981B0C00E42C9B /* hiphop_snare5_D1.wav in Resources */,
 				FABD3C492197B576007F8BF5 /* open_hi_hat_A#1.wav in Resources */,
-				B2C17C4121981B0C00E42C9B /* grime_kick3.wav in Resources */,
+				B2C17C4121981B0C00E42C9B /* grime_kick3_C1.wav in Resources */,
 				FABD3C1121977A36007F8BF5 /* Main.storyboard in Resources */,
 				FABD3C432197B576007F8BF5 /* clap_D#1.wav in Resources */,
 				FABD3C442197B576007F8BF5 /* hi_tom_D2.wav in Resources */,
@@ -343,10 +343,12 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Abbey Road/Pods-Abbey Road-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/PureLayout/PureLayout.framework",
+				"${BUILT_PRODUCTS_DIR}/Repeat/Repeat.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PureLayout.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Repeat.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -584,7 +586,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = ZBJT653L4M;
+				DEVELOPMENT_TEAM = AEX8D6Z45H;
 				INFOPLIST_FILE = "Abbey Road/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -604,7 +606,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = ZBJT653L4M;
+				DEVELOPMENT_TEAM = AEX8D6Z45H;
 				INFOPLIST_FILE = "Abbey Road/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (

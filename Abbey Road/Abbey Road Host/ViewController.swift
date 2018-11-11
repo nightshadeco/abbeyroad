@@ -13,8 +13,9 @@ import SceneKit
 
 class Harp {
     static let sharedInstance = Harp()
-    let playRate = 2.0
     var pluckNode: AKOperationGenerator!
+//    var boosterNode: AKBooster!
+    var filter: AKMoogLadder!
     
     init() {
         pluckNode = AKOperationGenerator { parameters in
@@ -28,7 +29,12 @@ class Harp {
         
         let reverb = AKReverb(pluckNode)
         reverb.dryWetMix = 0.01
-        AudioKit.output = reverb
+        
+//        boosterNode = AKBooster(reverb)
+        filter = AKMoogLadder(reverb)
+        
+        
+        AudioKit.output = filter
         do {
             try AudioKit.start()
         } catch {
@@ -48,7 +54,9 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
     let harp = Harp()
     
     var angles = [MCPeerID : Float]()
+    var distances = [MCPeerID : Float]()
     var pointerNodes = [MCPeerID : SCNNode]()
+    var hues = [MCPeerID : CGFloat]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -108,6 +116,9 @@ extension ViewController: MusicServiceDelegate {
     
     func instrumentMessage(service: MusicService, peerId: MCPeerID, message: InstrumentMessage) {
         if message.instrument == .Drum {
+            if let distance = distances[peerId] {
+                self.kit.drums.volume = Double(1.0 - distance)
+            }
             if message.action == 0 {
                 try? self.kit.drums.play(noteNumber: 36 - 12)
             } else if message.action == 1 {
@@ -116,6 +127,10 @@ extension ViewController: MusicServiceDelegate {
                 try? self.kit.drums.play(noteNumber: 46 - 12)
             }
         } else if message.instrument == .Harp {
+            if let distance = distances[peerId] {
+//                self.harp.boosterNode.gain = Double(1.0 - distance)
+                self.harp.filter.cutoffFrequency = Double(1.0 - distance) * 2000 + 1
+            }
             if message.action == 0 {
                 self.harp.pluckNode.start()
                 self.harp.pluckNode.parameters[1] = Double(20)
@@ -143,15 +158,20 @@ extension ViewController: MusicServiceDelegate {
     
     func cloneArrowIfNeeded(peerId: MCPeerID) {
         if self.pointerNodes[peerId] == nil {
-            let referenceNode = self.sceneView.scene?.rootNode.childNode(withName: "pointer", recursively: true)
-            if let node = referenceNode?.clone() {
-                node.isHidden = false
-                node.geometry = referenceNode?.geometry?.copy() as? SCNGeometry
-                let randomHue = CGFloat(Float(arc4random()) / Float(UINT32_MAX))
-                node.geometry?.firstMaterial?.diffuse.contents = UIColor(hue: randomHue, saturation: 0.8, brightness: 1.0, alpha: 1.0)
-                self.pointerNodes[peerId] = node
-                self.sceneView.scene?.rootNode.addChildNode(node)
-            }
+            
+            let referenceNode = SCNNode()
+            referenceNode.name = "pointer"
+            let pyramidNode = SCNNode()
+            pyramidNode.name = "pyramid"
+            pyramidNode.eulerAngles = SCNVector3(0, -45, 0)
+            pyramidNode.scale = SCNVector3(0.05, 1, 0.05)
+            referenceNode.addChildNode(pyramidNode)
+            pyramidNode.geometry = SCNPyramid()
+            self.pointerNodes[peerId] = referenceNode
+            
+            self.sceneView.scene?.rootNode.addChildNode(referenceNode)
+            let randomHue = CGFloat(Float(arc4random()) / Float(UINT32_MAX))
+            self.hues[peerId] = randomHue
         }
     }
     
@@ -163,31 +183,24 @@ extension ViewController: MusicServiceDelegate {
         DispatchQueue.main.async {
             self.cloneArrowIfNeeded(peerId: peerId)
             
+            guard let node = self.pointerNodes[peerId] else {
+                return
+            }
+            
             let projectedPos = simd_float2(position.x, position.z)
             let normalized = simd_normalize(projectedPos)
             let angle = atan2(-normalized.x, -normalized.y)
             self.angles[peerId] = angle
-            self.pointerNodes[peerId]?.eulerAngles.z = angle
+            node.eulerAngles.z = angle
             
-            var distanceToCenter = simd_length_squared(position) * 5.0
+            var distanceToCenter = CGFloat(simd_length_squared(position)) * 0.5
             if distanceToCenter > 1.0 {
                 distanceToCenter = 1.0
             }
+            self.distances[peerId] = Float(distanceToCenter)
             
-            if let material = self.pointerNodes[peerId]?.geometry?.firstMaterial {
-                if let color = material.diffuse.contents as? UIColor {
-                    var currentHue: CGFloat = 0.0
-                    var currentSaturation: CGFloat = 0.0
-                    var currentBrightness: CGFloat = 0.0
-                    var currentAlpha: CGFloat = 0.0
-                    
-                    if color.getHue(&currentHue, saturation: &currentSaturation, brightness: &currentBrightness, alpha: &currentAlpha) {
-                        material.diffuse.contents = UIColor(hue: currentHue,
-                                                            saturation: currentSaturation,
-                                                            brightness: CGFloat(distanceToCenter),
-                                                            alpha: currentAlpha)
-                    }
-                }
+            if let pyramidNode = node.childNode(withName: "pyramid", recursively: false) {
+                pyramidNode.geometry?.firstMaterial?.diffuse.contents = UIColor(hue: self.hues[peerId] ?? 0.5, saturation: 0.8, brightness: 1.0 - distanceToCenter, alpha: 0.7)
             }
         }
     }

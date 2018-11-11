@@ -6,20 +6,24 @@ PODS:
   - AudioKit/UI (4.5.0):
     - AudioKit/Core
   - PureLayout (3.1.2)
+  - Repeat (0.5.7)
 
 DEPENDENCIES:
   - AudioKit
   - PureLayout
+  - Repeat
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  https://github.com/CocoaPods/Specs.git:
     - AudioKit
     - PureLayout
+    - Repeat
 
 SPEC CHECKSUMS:
   AudioKit: 38345036d4a71df2b61233fc919c459a14e8911b
   PureLayout: 4634d0b61e3b5021166e8ec7c18e9e0ca0720c8b
+  Repeat: 73c5ee602aed8f3c7bf1aa12d4cd0d3dc3edea0a
 
-PODFILE CHECKSUM: 04e99af39419762c47ae77cae14932c46598a0c3
+PODFILE CHECKSUM: 2240e3de701ca80d140cebd2be681aa952053e16
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.5.0
