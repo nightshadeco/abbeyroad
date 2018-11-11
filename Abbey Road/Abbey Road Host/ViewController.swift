@@ -27,7 +27,7 @@ class Harp {
         }
         
         let reverb = AKReverb(pluckNode)
-        
+        reverb.dryWetMix = 0.01
         AudioKit.output = reverb
         do {
             try AudioKit.start()
@@ -115,26 +115,26 @@ extension ViewController: MusicServiceDelegate {
             } else if message.action == 2 {
                 try? self.kit.drums.play(noteNumber: 46 - 12)
             }
-        } else if(message.instrument == .Harp) {
+        } else if message.instrument == .Harp {
             if message.action == 0 {
                 self.harp.pluckNode.start()
-                self.harp.pluckNode.parameters[1] = Double(36 - 12)
+                self.harp.pluckNode.parameters[1] = Double(20)
                 self.harp.pluckNode.trigger()
             } else if message.action == 1 {
                 self.harp.pluckNode.start()
-                self.harp.pluckNode.parameters[1] = Double(39 - 12)
+                self.harp.pluckNode.parameters[1] = Double(23)
                 self.harp.pluckNode.trigger()
             } else if message.action == 2 {
                 self.harp.pluckNode.start()
-                self.harp.pluckNode.parameters[1] = Double(45 - 12)
+                self.harp.pluckNode.parameters[1] = Double(29)
                 self.harp.pluckNode.trigger()
             } else if message.action == 3 {
                 self.harp.pluckNode.start()
-                self.harp.pluckNode.parameters[1] = Double(48 - 12)
+                self.harp.pluckNode.parameters[1] = Double(32)
                 self.harp.pluckNode.trigger()
             } else {
                 self.harp.pluckNode.start()
-                self.harp.pluckNode.parameters[1] = Double(50 - 12)
+                self.harp.pluckNode.parameters[1] = Double(34)
                 self.harp.pluckNode.trigger()
             }
             

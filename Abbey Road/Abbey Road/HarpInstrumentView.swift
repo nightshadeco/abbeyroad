@@ -16,11 +16,7 @@ class HarpInstrumentView: UIView {
     
     var harpstringViews = [UIView]()
     
-    let harpstring1View = UIView(forAutoLayout: ())
-    let harpstring2View = UIView(forAutoLayout: ())
-    let harpstring3View = UIView(forAutoLayout: ())
-    let harpstring4View = UIView(forAutoLayout: ())
-    let harpstring5View = UIView(forAutoLayout: ())
+    var lastPannedNum = -1
     
     
     override init(frame: CGRect) {
@@ -38,6 +34,10 @@ class HarpInstrumentView: UIView {
         let tapGesture = UITapGestureRecognizer()
         tapGesture.addTarget(self, action: #selector(viewTapped))
         addGestureRecognizer(tapGesture)
+        
+        let panGesture = UIPanGestureRecognizer()
+        panGesture.addTarget(self, action: #selector(viewPanned))
+        addGestureRecognizer(panGesture)
         
         addSubview(stackView)
         stackView.autoPinEdgesToSuperviewEdges()
@@ -83,6 +83,35 @@ class HarpInstrumentView: UIView {
         instrumentMessage.instrument = .Harp
         instrumentMessage.action = stringNum
         musicService.send(instrumentMessage: instrumentMessage)
+    }
+    
+    @objc func viewPanned(_ sender: UIPanGestureRecognizer) {
+        if sender.state == .changed {
+            let pos = sender.location(in: self)
+            let stringWidth = self.bounds.height / CGFloat(harpstringViews.count + 1)
+            var stringNum = 0
+            if pos.y < stringWidth + stringWidth*0.5 {
+                stringNum = 0
+            } else if pos.y < stringWidth*2 + stringWidth*0.5 {
+                stringNum = 1
+            } else if pos.y < stringWidth*3 + stringWidth*0.5 {
+                stringNum = 2
+            } else if pos.y < stringWidth*4 + stringWidth*0.5 {
+                stringNum = 3
+            } else {
+                stringNum = 4
+            }
+            
+            if stringNum != lastPannedNum {
+                let instrumentMessage = InstrumentMessage()
+                instrumentMessage.instrument = .Harp
+                instrumentMessage.action = stringNum
+                musicService.send(instrumentMessage: instrumentMessage)
+                lastPannedNum = stringNum
+            }
+        } else if sender.state == .began {
+            lastPannedNum = -1
+        }
     }
     
 }
