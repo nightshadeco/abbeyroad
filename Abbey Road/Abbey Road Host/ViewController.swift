@@ -70,7 +70,15 @@ extension ViewController: MusicServiceDelegate {
     }
     
     func instrumentMessage(service: MusicService, peerId: MCPeerID, message: InstrumentMessage) {
-        try? self.kit.drums.play(noteNumber: 36 - 12)
+        if message.instrument == .Drum {
+            if message.action == 0 {
+                try? self.kit.drums.play(noteNumber: 36 - 12)
+            } else if message.action == 1 {
+                try? self.kit.drums.play(noteNumber: 38 - 12)
+            } else if message.action == 2 {
+                try? self.kit.drums.play(noteNumber: 46 - 12)
+            }
+        }
     }
     
 }

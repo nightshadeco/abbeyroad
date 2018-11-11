@@ -26,19 +26,21 @@ class DrumInstrumentView: UIView {
         bassDrumButton.transform = CGAffineTransform(rotationAngle: CGFloat.pi / 2)
         stackView.addArrangedSubview(bassDrumButton)
         bassDrumButton.autoSetDimensions(to: CGSize(width: 1, height: 1))
+        bassDrumButton.addTarget(self, action: #selector(kickTapped), for: .touchDown)
         
         let snareDrumButton = UIButton(forAutoLayout: ())
         snareDrumButton.setImage(UIImage(named: "drum-and-drumsticks-top-view"), for: .normal)
         snareDrumButton.transform = CGAffineTransform(rotationAngle: CGFloat.pi / 2)
         stackView.addArrangedSubview(snareDrumButton)
         snareDrumButton.autoMatch(.height, to: .height, of: bassDrumButton)
+        snareDrumButton.addTarget(self, action: #selector(snareTapped), for: .touchDown)
         
         let cymbalButton = UIButton(forAutoLayout: ())
         cymbalButton.setImage(UIImage(named: "cymbal"), for: .normal)
         cymbalButton.transform = CGAffineTransform(rotationAngle: CGFloat.pi / 2)
         stackView.addArrangedSubview(cymbalButton)
         cymbalButton.autoMatch(.height, to: .height, of: bassDrumButton)
-        cymbalButton.addTarget(self, action: #selector(cymbalTapped), for: .touchUpInside)
+        cymbalButton.addTarget(self, action: #selector(cymbalTapped), for: .touchDown)
         
         addSubview(stackView)
         stackView.autoPinEdgesToSuperviewEdges()
@@ -50,8 +52,30 @@ class DrumInstrumentView: UIView {
     
     // MARK: - Actions
     
+    @objc func kickTapped() {
+        print("kick")
+        let instrumentMessage = InstrumentMessage()
+        instrumentMessage.instrument = .Drum
+        instrumentMessage.action = 0
+        musicService.send(instrumentMessage: instrumentMessage)
+    }
+    
+    
+    @objc func snareTapped() {
+        print("snare")
+        let instrumentMessage = InstrumentMessage()
+        instrumentMessage.instrument = .Drum
+        instrumentMessage.action = 1
+        musicService.send(instrumentMessage: instrumentMessage)
+    }
+    
+    
     @objc func cymbalTapped() {
         print("cymbal")
+        let instrumentMessage = InstrumentMessage()
+        instrumentMessage.instrument = .Drum
+        instrumentMessage.action = 2
+        musicService.send(instrumentMessage: instrumentMessage)
     }
     
 }
