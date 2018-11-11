@@ -38,7 +38,6 @@ class MusicService: NSObject {
         super.init()
         
         serviceAdvertiser.delegate = self
-        
         serviceBrowser.delegate = self
     }
     

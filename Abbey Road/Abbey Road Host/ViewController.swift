@@ -32,6 +32,7 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
         sceneView.scene = SCNScene(named: "art.scnassets/scene.scn")!
         
         musicService.delegate = self
+        musicService.startHost()
     }
     
     @objc func Handler(sender: UITapGestureRecognizer? = nil) {
@@ -89,21 +90,42 @@ extension ViewController: MusicServiceDelegate {
         }
     }
     
+    func cloneArrowIfNeeded() {
+        if self.pointerNodes[peerId] == nil {
+            let referenceNode = self.sceneView.scene?.rootNode.childNode(withName: "pointer", recursively: true)
+            if let node = referenceNode?.clone() {
+                node.geometry = referenceNode?.geometry?.copy() as? SCNGeometry
+                let randomHue = CGFloat(Float(arc4random()) / Float(UINT32_MAX))
+                node.geometry?.firstMaterial?.diffuse.contents = UIColor(hue: randomHue, saturation: 0.8, brightness: 1.0, alpha: 1.0)
+                self.pointerNodes[peerId] = node
+                node.isHidden = false
+                self.sceneView.scene?.rootNode.addChildNode(node)
+            }
+        }
+    }
+    
     func positionChanged(service: MusicService, peerId: MCPeerID, position: simd_float3) {
         if peerId.displayName == UIDevice.current.name {
             return
         }
         
         DispatchQueue.main.async {
-            if self.pointerNodes[peerId] == nil {
-                self.pointerNodes[peerId] = self.sceneView.scene?.rootNode.childNode(withName: "pointer", recursively: true)
-                self.pointerNodes[peerId]?.isHidden = false
-            }
+            cloneArrowIfNeeded()
+            
             let projectedPos = simd_float2(position.x, position.z)
             let normalized = simd_normalize(projectedPos)
             let angle = atan2(-normalized.x, -normalized.y)
             self.angles[peerId] = angle
             self.pointerNodes[peerId]?.eulerAngles.z = angle
+            
+            var distanceToCenter = simd_length_squared(position) * 5.0
+            if distanceToCenter > 1.0 {
+                distanceToCenter = 1.0
+            }
+            
+            if let color = node.geometry?.firstMaterial?.diffuse.contents as? UIColor {
+//                color.hu
+            }
         }
     }
     

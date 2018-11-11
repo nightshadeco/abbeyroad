@@ -46,6 +46,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
         sceneView.scene = scene
         
         musicService.delegate = self
+        musicService.startPeer()
     }
     
     override func viewWillAppear(_ animated: Bool) {

@@ -40,6 +40,7 @@
 		FABD3C492197B576007F8BF5 /* open_hi_hat_A#1.wav in Resources */ = {isa = PBXBuildFile; fileRef = FABD3C412197B576007F8BF5 /* open_hi_hat_A#1.wav */; };
 		FABD3C4A2197B576007F8BF5 /* snare_D1.wav in Resources */ = {isa = PBXBuildFile; fileRef = FABD3C422197B576007F8BF5 /* snare_D1.wav */; };
 		FABD3C4C2197CA96007F8BF5 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = FABD3C4B2197CA96007F8BF5 /* art.scnassets */; };
+		FADBEA0E2197F3C1003B38F5 /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABD3C1F21978E0C007F8BF5 /* UIColor+Hex.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -397,6 +398,7 @@
 				FABD3C242197B361007F8BF5 /* InstrumentMessage.swift in Sources */,
 				FABD3C0E21977A36007F8BF5 /* ViewController.swift in Sources */,
 				FABD3C232197B357007F8BF5 /* MusicService.swift in Sources */,
+				FADBEA0E2197F3C1003B38F5 /* UIColor+Hex.swift in Sources */,
 				FABD3C262197B457007F8BF5 /* DrumKit.swift in Sources */,
 				FABD3C0C21977A36007F8BF5 /* AppDelegate.swift in Sources */,
 			);
