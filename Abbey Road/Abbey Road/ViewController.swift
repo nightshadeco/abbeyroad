@@ -52,9 +52,9 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
         
         musicService.delegate = self
         musicService.startPeer()
-        
-        self.drumButton.transform = self.drumButton.transform.rotated(by: CGFloat(-1*M_PI_2))
-        self.harpButton.transform = self.harpButton.transform.rotated(by: CGFloat(-1*M_PI_2))
+//        
+//        self.drumButton.transform = self.drumButton.transform.rotated(by: CGFloat(-1*M_PI_2))
+//        self.harpButton.transform = self.harpButton.transform.rotated(by: CGFloat(-1*M_PI_2))
         
 //        var div = DrumInstrumentView(forAutoLayout: ())
 //        if let div = div as? DrumInstrumentView {

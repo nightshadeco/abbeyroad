@@ -26,7 +26,7 @@
                                     <constraint firstAttribute="height" constant="40" id="HKw-6m-rHT"/>
                                     <constraint firstAttribute="width" constant="40" id="cXj-PB-cTH"/>
                                 </constraints>
-                                <state key="normal" image="drums">
+                                <state key="normal" image="drumicon">
                                     <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <color key="titleShadowColor" red="0.95686274510000002" green="0.50588235290000005" blue="0.48627450979999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
@@ -40,7 +40,7 @@
                                     <constraint firstAttribute="width" constant="40" id="McQ-oH-Few"/>
                                     <constraint firstAttribute="height" constant="40" id="ebz-Cl-4wP"/>
                                 </constraints>
-                                <state key="normal" image="harp"/>
+                                <state key="normal" image="harpicon"/>
                                 <connections>
                                     <action selector="greenTapped" destination="BV1-FR-VrT" eventType="touchUpInside" id="Ftg-k6-arj"/>
                                 </connections>
@@ -71,7 +71,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="drums" width="47.759998321533203" height="55.919998168945312"/>
-        <image name="harp" width="57.599998474121094" height="32.880001068115234"/>
+        <image name="drumicon" width="540" height="553"/>
+        <image name="harpicon" width="540" height="553"/>
     </resources>
 </document>
