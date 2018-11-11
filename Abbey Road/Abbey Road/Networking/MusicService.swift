@@ -26,7 +26,7 @@ class MusicService: NSObject {
     var delegate : MusicServiceDelegate?
     
     lazy var session: MCSession = {
-        let session = MCSession(peer: peerId, securityIdentity: nil, encryptionPreference: .required)
+        let session = MCSession(peer: peerId, securityIdentity: nil, encryptionPreference: .none)
         session.delegate = self
         return session
     }()

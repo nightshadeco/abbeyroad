@@ -9,8 +9,11 @@
 import UIKit
 import AudioKit
 import MultipeerConnectivity
+import SceneKit
 
 class ViewController: UIViewController, UIGestureRecognizerDelegate {
+    
+    @IBOutlet weak var sceneView: SCNView!
     
     let musicService = MusicService()
 
@@ -21,7 +24,9 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
        
         let tapGesture = UITapGestureRecognizer(target: self , action: #selector(Handler));
         tapGesture.delegate = self
-        self.view.addGestureRecognizer(tapGesture);
+        self.view.addGestureRecognizer(tapGesture)
+        
+        sceneView.scene = SCNScene(named: "host")
         
         musicService.delegate = self
     }
