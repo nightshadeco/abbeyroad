@@ -26,16 +26,11 @@ class Harp {
             lowestFrequency: 50)
         }
         
-        let delay = AKDelay(pluckNode)
-        delay.time = 1.5 / playRate
-        delay.dryWetMix = 0.3
-        delay.feedback = 0.2
-        
-        let reverb = AKReverb(delay)
+        let reverb = AKReverb(pluckNode)
         
         AudioKit.output = reverb
         do {
-            try AudioKit.start(withPeriodicFunctions: performance)
+            try AudioKit.start()
         } catch {
             AKLog("AudioKit did not start!")
         }
@@ -123,38 +118,38 @@ extension ViewController: MusicServiceDelegate {
         } else if(message.instrument == .Harp) {
             if message.action == 0 {
                 self.harp.pluckNode.start()
-                self.harp.pluckNode.parameters[1] = Double(36)
+                self.harp.pluckNode.parameters[1] = Double(36 - 12)
                 self.harp.pluckNode.trigger()
             } else if message.action == 1 {
                 self.harp.pluckNode.start()
-                self.harp.pluckNode.parameters[1] = Double(39)
+                self.harp.pluckNode.parameters[1] = Double(39 - 12)
                 self.harp.pluckNode.trigger()
             } else if message.action == 2 {
                 self.harp.pluckNode.start()
-                self.harp.pluckNode.parameters[1] = Double(45)
+                self.harp.pluckNode.parameters[1] = Double(45 - 12)
                 self.harp.pluckNode.trigger()
             } else if message.action == 3 {
                 self.harp.pluckNode.start()
-                self.harp.pluckNode.parameters[1] = Double(48)
+                self.harp.pluckNode.parameters[1] = Double(48 - 12)
                 self.harp.pluckNode.trigger()
             } else {
                 self.harp.pluckNode.start()
-                self.harp.pluckNode.parameters[1] = Double(50)
+                self.harp.pluckNode.parameters[1] = Double(50 - 12)
                 self.harp.pluckNode.trigger()
             }
             
         }
     }
     
-    func cloneArrowIfNeeded() {
+    func cloneArrowIfNeeded(peerId: MCPeerID) {
         if self.pointerNodes[peerId] == nil {
             let referenceNode = self.sceneView.scene?.rootNode.childNode(withName: "pointer", recursively: true)
             if let node = referenceNode?.clone() {
+                node.isHidden = false
                 node.geometry = referenceNode?.geometry?.copy() as? SCNGeometry
                 let randomHue = CGFloat(Float(arc4random()) / Float(UINT32_MAX))
                 node.geometry?.firstMaterial?.diffuse.contents = UIColor(hue: randomHue, saturation: 0.8, brightness: 1.0, alpha: 1.0)
                 self.pointerNodes[peerId] = node
-                node.isHidden = false
                 self.sceneView.scene?.rootNode.addChildNode(node)
             }
         }
@@ -166,7 +161,7 @@ extension ViewController: MusicServiceDelegate {
         }
         
         DispatchQueue.main.async {
-            cloneArrowIfNeeded()
+            self.cloneArrowIfNeeded(peerId: peerId)
             
             let projectedPos = simd_float2(position.x, position.z)
             let normalized = simd_normalize(projectedPos)
@@ -179,8 +174,20 @@ extension ViewController: MusicServiceDelegate {
                 distanceToCenter = 1.0
             }
             
-            if let color = node.geometry?.firstMaterial?.diffuse.contents as? UIColor {
-//                color.hu
+            if let material = self.pointerNodes[peerId]?.geometry?.firstMaterial {
+                if let color = material.diffuse.contents as? UIColor {
+                    var currentHue: CGFloat = 0.0
+                    var currentSaturation: CGFloat = 0.0
+                    var currentBrightness: CGFloat = 0.0
+                    var currentAlpha: CGFloat = 0.0
+                    
+                    if color.getHue(&currentHue, saturation: &currentSaturation, brightness: &currentBrightness, alpha: &currentAlpha) {
+                        material.diffuse.contents = UIColor(hue: currentHue,
+                                                            saturation: currentSaturation,
+                                                            brightness: CGFloat(distanceToCenter),
+                                                            alpha: currentAlpha)
+                    }
+                }
             }
         }
     }

@@ -65,15 +65,15 @@ class HarpInstrumentView: UIView {
         print("harp")
         
         let pos = sender.location(in: self)
-        let stringWidth = self.bounds.width / (CGFloat(harpstringViews.count) + CGFloat(1))
+        let stringWidth = self.bounds.height / CGFloat(harpstringViews.count + 1)
         var stringNum = 0
-        if pos.x < stringWidth + stringWidth*0.5 {
+        if pos.y < stringWidth + stringWidth*0.5 {
             stringNum = 0
-        } else if pos.x < stringWidth + stringWidth*0.5*2 {
+        } else if pos.y < stringWidth*2 + stringWidth*0.5 {
             stringNum = 1
-        } else if pos.x < stringWidth + stringWidth*0.5*3 {
+        } else if pos.y < stringWidth*3 + stringWidth*0.5 {
             stringNum = 2
-        } else if pos.x < stringWidth + stringWidth*0.5*4 {
+        } else if pos.y < stringWidth*4 + stringWidth*0.5 {
             stringNum = 3
         } else {
             stringNum = 4
