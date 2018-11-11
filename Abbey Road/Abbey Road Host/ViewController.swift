@@ -15,7 +15,6 @@ class Harp {
     static let sharedInstance = Harp()
     let playRate = 2.0
     var pluckNode: AKOperationGenerator!
-    var performance: AKPeriodicFunction!
     
     init() {
         pluckNode = AKOperationGenerator { parameters in
@@ -33,20 +32,6 @@ class Harp {
         delay.feedback = 0.2
         
         let reverb = AKReverb(delay)
-        
-        let scale = [0, 2, 4, 5, 7, 9, 11, 12]
-        
-        performance = AKPeriodicFunction(frequency: playRate) {
-            var note = scale.randomElement()!
-            let octave = [0, 1, 2, 3].randomElement()! * 12
-            if random(in: 0...10) < 1.0 { note += 1 }
-            if !scale.contains(note % 12) { print("ACCIDENT!") }
-        
-            if random(in: 0...6) > 1.0 {
-                self.pluckNode.parameters[1] = Double(note + octave)
-                self.pluckNode.trigger()
-            }
-        }
         
         AudioKit.output = reverb
         do {
@@ -138,7 +123,24 @@ extension ViewController: MusicServiceDelegate {
         } else if(message.instrument == .Harp) {
             if message.action == 0 {
                 self.harp.pluckNode.start()
-                self.harp.performance.start()
+                self.harp.pluckNode.parameters[1] = Double(36)
+                self.harp.pluckNode.trigger()
+            } else if message.action == 1 {
+                self.harp.pluckNode.start()
+                self.harp.pluckNode.parameters[1] = Double(39)
+                self.harp.pluckNode.trigger()
+            } else if message.action == 2 {
+                self.harp.pluckNode.start()
+                self.harp.pluckNode.parameters[1] = Double(45)
+                self.harp.pluckNode.trigger()
+            } else if message.action == 3 {
+                self.harp.pluckNode.start()
+                self.harp.pluckNode.parameters[1] = Double(48)
+                self.harp.pluckNode.trigger()
+            } else {
+                self.harp.pluckNode.start()
+                self.harp.pluckNode.parameters[1] = Double(50)
+                self.harp.pluckNode.trigger()
             }
             
         }

@@ -36,7 +36,7 @@ class HarpInstrumentView: UIView {
 //        harpButton.autoSetDimensions(to: CGSize(width: 1, height: 1))
 //        harpButton.addTarget(self, action: #selector(harpTapped), for: .touchDown)
         let tapGesture = UITapGestureRecognizer()
-        tapGesture.addTarget(self, action: #selector(viewTapped), for: .touchDown)
+        tapGesture.addTarget(self, action: #selector(viewTapped))
         addGestureRecognizer(tapGesture)
         
         addSubview(stackView)
@@ -65,7 +65,7 @@ class HarpInstrumentView: UIView {
         print("harp")
         
         let pos = sender.location(in: self)
-        var stringWidth = self.bounds.width / (harpstringViews.count + 1)
+        let stringWidth = self.bounds.width / (CGFloat(harpstringViews.count) + CGFloat(1))
         var stringNum = 0
         if pos.x < stringWidth + stringWidth*0.5 {
             stringNum = 0
