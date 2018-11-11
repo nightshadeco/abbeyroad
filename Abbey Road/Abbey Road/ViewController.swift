@@ -128,6 +128,13 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
     @IBAction func greenTapped() {
         change(color: .green)
         musicService.send(colorName: "green")
+        
+        instrumentView = HarpInstrumentView(forAutoLayout: ())
+        if let instrumentView = instrumentView as? HarpInstrumentView {
+            instrumentView.musicService = musicService
+            view.addSubview(instrumentView)
+            instrumentView.autoPinEdgesToSuperviewEdges()
+        }
     }
     
 }

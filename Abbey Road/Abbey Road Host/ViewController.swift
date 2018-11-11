@@ -11,6 +11,98 @@ import AudioKit
 import MultipeerConnectivity
 import SceneKit
 
+class Harp {
+    static let sharedInstance = Harp()
+    let playRate = 2.0
+    var pluckNode: AKOperationGenerator!
+    var performance: AKPeriodicFunction!
+    
+    init() {
+        pluckNode = AKOperationGenerator { parameters in
+        let frequency = (AKOperation.parameters[1] + 40).midiNoteToFrequency()
+        return AKOperation.pluckedString(
+            trigger: AKOperation.trigger,
+            frequency: frequency,
+            amplitude: 0.5,
+            lowestFrequency: 50)
+        }
+        
+        let delay = AKDelay(pluckNode)
+        delay.time = 1.5 / playRate
+        delay.dryWetMix = 0.3
+        delay.feedback = 0.2
+        
+        let reverb = AKReverb(delay)
+        
+        let scale = [0, 2, 4, 5, 7, 9, 11, 12]
+        
+        performance = AKPeriodicFunction(frequency: playRate) {
+            var note = scale.randomElement()!
+            let octave = [0, 1, 2, 3].randomElement()! * 12
+            if random(in: 0...10) < 1.0 { note += 1 }
+            if !scale.contains(note % 12) { print("ACCIDENT!") }
+        
+            if random(in: 0...6) > 1.0 {
+                self.pluckNode.parameters[1] = Double(note + octave)
+                self.pluckNode.trigger()
+            }
+        }
+        
+        AudioKit.output = reverb
+        do {
+            try AudioKit.start(withPeriodicFunctions: performance)
+        } catch {
+            AKLog("AudioKit did not start!")
+        }
+        //pluckNode.start()
+        //performance.start()
+        //
+        //import PlaygroundSupport
+        //PlaygroundPage.current.needsIndefiniteExecution = true
+    }
+}
+
+//let playRate = 2.0
+//
+//let pluckNode = AKOperationGenerator { parameters in
+//    let frequency = (AKOperation.parameters[1] + 40).midiNoteToFrequency()
+//    return AKOperation.pluckedString(
+//        trigger: AKOperation.trigger,
+//        frequency: frequency,
+//        amplitude: 0.5,
+//        lowestFrequency: 50)
+//}
+//
+//var delay = AKDelay(pluckNode)
+//delay.time = 1.5 / playRate
+//delay.dryWetMix = 0.3
+//delay.feedback = 0.2
+//
+//let reverb = AKReverb(delay)
+//
+//let scale = [0, 2, 4, 5, 7, 9, 11, 12]
+//
+//let performance = AKPeriodicFunction(frequency: playRate) {
+//    var note = scale.randomElement()
+//    let octave = [0, 1, 2, 3].randomElement() * 12
+//    if random(in: 0...10) < 1.0 { note += 1 }
+//    if !scale.contains(note % 12) { print("ACCIDENT!") }
+//
+//    if random(in: 0...6) > 1.0 {
+//        pluckNode.parameters[1] = Double(note + octave)
+//        pluckNode.trigger()
+//    }
+//}
+//
+//AudioKit.output = reverb
+//try AudioKit.start(withPeriodicFunctions: performance)
+//pluckNode.start()
+//performance.start()
+//
+//import PlaygroundSupport
+//PlaygroundPage.current.needsIndefiniteExecution = true
+
+
 class ViewController: UIViewController, UIGestureRecognizerDelegate {
     
     @IBOutlet weak var sceneView: SCNView!
@@ -18,6 +110,7 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
     let musicService = MusicService()
 
     let kit = DrumKit()
+    let harp = Harp()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -83,6 +176,12 @@ extension ViewController: MusicServiceDelegate {
             } else if message.action == 2 {
                 try? self.kit.drums.play(noteNumber: 46 - 12)
             }
+        } else if(message.instrument == .Harp) {
+            if message.action == 0 {
+                self.harp.pluckNode.start()
+                self.harp.performance.start()
+            }
+            
         }
     }
     
