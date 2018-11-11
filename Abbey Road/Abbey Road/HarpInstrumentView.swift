@@ -45,7 +45,7 @@ class HarpInstrumentView: UIView {
         for i in 0..<5 {
             let harpstringView = UIView(forAutoLayout: ())
             harpstringViews.append(harpstringView)
-            harpstringView.backgroundColor = .red
+            harpstringView.backgroundColor = UIColor(rgb: 0x666666)
             addSubview(harpstringView)
             harpstringView.autoPinEdge(toSuperviewEdge: .left)
             harpstringView.autoPinEdge(toSuperviewEdge: .right)
